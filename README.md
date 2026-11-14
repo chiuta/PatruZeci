@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 3.1.0 · **Last updated:** 2026-11-14
+**Version:** 3.2.0 · **Last updated:** 2026-11-14
 
 **Status:** stable · **Offline:** complete (works from `file://`, no network needed)
 
@@ -12,7 +12,7 @@
 
 Short card: All 1993 uses from the official “2000+ uses” list, plus extras from the web, each with its own animated illustration. Single file, offline, no account, no tracking.
 
-Interface language: **Română** for now (the README is available in 8 languages: English, Română, Français, Italiano, Español, Português, Deutsch, Magyar).
+Interface language: **all 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (auto-detected, switch in the header). The texts of the uses exist in Romanian and English; the other six languages show them in English for now.
 
 ## Detailed description
 
@@ -25,20 +25,23 @@ PATRUZECI is a single-file, offline web app (`index.html`, no server, no account
 | <img src="docs/screenshots/desktop-guide.png" alt="Guide: 147 animated cards, filters by category and function" width="100%"><br><sub>Guide: 147 animated cards, filters by category and function</sub> | <img src="docs/screenshots/desktop-full.png" alt="Full list: 2018 uses, six official sections plus a web section" width="100%"><br><sub>Full list: 2018 uses, six official sections plus a web section</sub> | <img src="docs/screenshots/desktop-modal.png" alt="Detail sheet with illustration, risk level and function tags" width="100%"><br><sub>Detail sheet with illustration, risk level and function tags</sub> |
 | <img src="docs/screenshots/desktop-web.png" alt="Section 🌐: extra uses, myths and warnings from web articles" width="100%"><br><sub>Section 🌐: extra uses, myths and warnings from web articles</sub> | <img src="docs/screenshots/tablet-full.png" alt="Tablet layout (three columns)" width="100%"><br><sub>Tablet layout (three columns)</sub> | <img src="docs/screenshots/phone-guide.png" alt="Phone: bottom tab bar, two-column grid" width="100%"><br><sub>Phone: bottom tab bar, two-column grid</sub> |
 | <img src="docs/screenshots/phone-full.png" alt="Phone: full list" width="100%"><br><sub>Phone: full list</sub> | <img src="docs/screenshots/phone-modal.png" alt="Phone: detail sheet as a bottom sheet, with swipe navigation" width="100%"><br><sub>Phone: detail sheet as a bottom sheet, with swipe navigation</sub> | <img src="docs/screenshots/desktop-avoid.png" alt="“What to avoid”: where WD-40 is not the right choice" width="100%"><br><sub>“What to avoid”: where WD-40 is not the right choice</sub> |
+| <img src="docs/screenshots/desktop-de.png" alt="Interface in German" width="100%"><br><sub>Interface in German</sub> | <img src="docs/screenshots/tablet-es.png" alt="Interface in Spanish (tablet)" width="100%"><br><sub>Interface in Spanish (tablet)</sub> | <img src="docs/screenshots/phone-hu.png" alt="Interface in Hungarian (phone)" width="100%"><br><sub>Interface in Hungarian (phone)</sub> |
 
 ## What is in the app
 
 - **Guide** — 147 hand-written cards in 14 categories, each with advice, a risk level (generally safe / use caution / not recommended) and what the spray does (lubricates, loosens, cleans, protects from rust, displaces moisture).
+- **8 languages** — the whole interface (tabs, filters, categories, safety notes, help texts) in English, Română, Français, Italiano, Español, Português, Deutsch and Magyar, picked from the browser language or the selector in the header.
 - **Full list** — all 1993 uses from the official “2000+ uses” list, translated into Romanian, searchable and filterable by the six official sections and by function, with infinite scroll. Plus a 🌐 section with 25 extra uses, myths and warnings from recent web articles.
 - **Animations** — 131 scene variants (hinge, bolt, chain, stain, rust, zipper, wheel, pulley…) chosen automatically for each use. They pause when off-screen and stop with “Animations: off” or when the system asks for reduced motion.
 - **Safety first** — 112 uses are marked “not recommended” (brakes, seat belts, food contact, skin and animals, medical devices, vinyl records…) and 245 “use caution”, each with an explanation.
 - **Responsive** — phone (bottom tab bar, bottom-sheet details, swipe), tablet, desktop (two-column details, arrow keys), safe-area aware.
 - **Tabs** — How it works, Range of WD-40 products, What to avoid, Sources.
 - **Private** — favourites are kept in the browser’s local storage; nothing is sent anywhere.
+- **Installable and offline** — manifest, service worker and icons (PWA), a strict Content-Security-Policy (no network requests), no external dependencies.
 
 ## Honest limits
 
-The illustrations are generic animated scenes matched by rules to the action and the object of each use, not 2000 unique drawings; the automatic matching can be approximate. The official list is user-submitted and has **not been tested by WD-40 Company**; it is also very repetitive. The Romanian translation was produced with AI assistance. The interface is currently in Romanian only.
+The illustrations are generic animated scenes matched by rules to the action and the object of each use, not 2000 unique drawings; the automatic matching can be approximate. The official list is user-submitted and has **not been tested by WD-40 Company**; it is also very repetitive. The Romanian translation was produced with AI assistance. The interface is available in 8 languages, but the texts of the uses exist only in Romanian and English (the other six languages show them in English); the interface translations into French, Italian, Spanish, Portuguese, German and Hungarian were produced with AI assistance and have not been reviewed by native speakers.
 
 ## Safety
 

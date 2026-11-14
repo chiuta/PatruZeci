@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 3.1.0 · **Ultimo aggiornamento:** 2026-11-14
+**Versione:** 3.2.0 · **Ultimo aggiornamento:** 2026-11-14
 
 **Stato:** stabile · **Offline:** completo (funziona da `file://`, senza rete)
 
@@ -12,7 +12,7 @@
 
 Scheda breve: tutti i 1993 usi della lista ufficiale «2000+ uses», più altri dal web, ciascuno con la propria illustrazione animata. File unico, offline, senza account, senza tracciamento.
 
-Lingua dell’interfaccia: **Română** per ora (il README esiste in 8 lingue: English, Română, Français, Italiano, Español, Português, Deutsch, Magyar).
+Lingua dell’interfaccia: **tutte e 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (rilevata automaticamente, si cambia dall’intestazione). I testi degli usi esistono in rumeno e inglese; le altre sei lingue per ora li mostrano in inglese.
 
 ## Descrizione dettagliata
 
@@ -25,20 +25,23 @@ PATRUZECI è un’app web in un solo file, offline (`index.html`, senza server, 
 | <img src="docs/screenshots/desktop-guide.png" alt="Guida: 147 schede animate, filtri per categoria e funzione" width="100%"><br><sub>Guida: 147 schede animate, filtri per categoria e funzione</sub> | <img src="docs/screenshots/desktop-full.png" alt="Lista completa: 2018 usi, sei sezioni ufficiali più una dal web" width="100%"><br><sub>Lista completa: 2018 usi, sei sezioni ufficiali più una dal web</sub> | <img src="docs/screenshots/desktop-modal.png" alt="Scheda di dettaglio con illustrazione, livello di rischio ed etichette di funzione" width="100%"><br><sub>Scheda di dettaglio con illustrazione, livello di rischio ed etichette di funzione</sub> |
 | <img src="docs/screenshots/desktop-web.png" alt="Sezione 🌐: usi aggiuntivi, miti e avvertenze da articoli web" width="100%"><br><sub>Sezione 🌐: usi aggiuntivi, miti e avvertenze da articoli web</sub> | <img src="docs/screenshots/tablet-full.png" alt="Tablet (tre colonne)" width="100%"><br><sub>Tablet (tre colonne)</sub> | <img src="docs/screenshots/phone-guide.png" alt="Telefono: barra delle schede in basso, griglia a due colonne" width="100%"><br><sub>Telefono: barra delle schede in basso, griglia a due colonne</sub> |
 | <img src="docs/screenshots/phone-full.png" alt="Telefono: lista completa" width="100%"><br><sub>Telefono: lista completa</sub> | <img src="docs/screenshots/phone-modal.png" alt="Telefono: scheda di dettaglio come pannello scorrevole, navigazione con swipe" width="100%"><br><sub>Telefono: scheda di dettaglio come pannello scorrevole, navigazione con swipe</sub> | <img src="docs/screenshots/desktop-avoid.png" alt="«Da evitare»: dove WD-40 non è la scelta giusta" width="100%"><br><sub>«Da evitare»: dove WD-40 non è la scelta giusta</sub> |
+| <img src="docs/screenshots/desktop-de.png" alt="Interfaccia in tedesco" width="100%"><br><sub>Interfaccia in tedesco</sub> | <img src="docs/screenshots/tablet-es.png" alt="Interfaccia in spagnolo (tablet)" width="100%"><br><sub>Interfaccia in spagnolo (tablet)</sub> | <img src="docs/screenshots/phone-hu.png" alt="Interfaccia in ungherese (telefono)" width="100%"><br><sub>Interfaccia in ungherese (telefono)</sub> |
 
 ## Cosa contiene l’app
 
 - **Guida** — 147 schede scritte a mano in 14 categorie, ciascuna con consigli, livello di rischio (in genere sicuro / con cautela / sconsigliato) e cosa fa lo spray (lubrifica, sblocca, pulisce, protegge dalla ruggine, scaccia l’umidità).
+- **8 lingue** — tutta l’interfaccia (schede, filtri, categorie, note di sicurezza, testi di aiuto) in English, Română, Français, Italiano, Español, Português, Deutsch e Magyar, scelta in base alla lingua del browser o dal selettore nell’intestazione.
 - **Lista completa** — tutti i 1993 usi della lista ufficiale «2000+ uses», tradotti in rumeno, con ricerca e filtri per le sei sezioni ufficiali e per funzione, con scorrimento infinito. In più una sezione 🌐 con 25 usi aggiuntivi, miti e avvertenze da articoli web recenti.
 - **Animazioni** — 131 varianti di scena (cardine, bullone, catena, macchia, ruggine, cerniera lampo, ruota, puleggia…) scelte automaticamente per ogni uso. Si fermano fuori schermo e con «Animazioni: spente» o quando il sistema chiede meno movimento.
 - **Prima la sicurezza** — 112 usi sono segnati «sconsigliato» (freni, cinture di sicurezza, contatto con alimenti, pelle e animali, dispositivi medici, dischi in vinile…) e 245 «con cautela», ciascuno con una spiegazione.
 - **Adattivo** — telefono (barra delle schede in basso, dettagli a pannello scorrevole, swipe), tablet, desktop (dettagli su due colonne, tasti freccia), rispetto delle aree sicure dello schermo.
 - **Schede** — Come funziona, Gamma di prodotti WD-40, Da evitare, Fonti.
 - **Privato** — i preferiti restano nella memoria locale del browser; nulla viene inviato altrove.
+- **Installabile e offline** — manifest, service worker e icone (PWA), Content-Security-Policy rigorosa (nessuna richiesta di rete), senza dipendenze esterne.
 
 ## Limiti, con franchezza
 
-Le illustrazioni sono scene animate generiche abbinate con regole all’azione e all’oggetto di ciascun uso, non 2000 disegni unici; l’abbinamento automatico può essere approssimativo. La lista ufficiale proviene dagli utenti e **non è stata testata da WD-40 Company**; inoltre è molto ripetitiva. La traduzione in rumeno è stata fatta con l’aiuto dell’IA. L’interfaccia è per ora solo in rumeno.
+Le illustrazioni sono scene animate generiche abbinate con regole all’azione e all’oggetto di ciascun uso, non 2000 disegni unici; l’abbinamento automatico può essere approssimativo. La lista ufficiale proviene dagli utenti e **non è stata testata da WD-40 Company**; inoltre è molto ripetitiva. La traduzione in rumeno è stata fatta con l’aiuto dell’IA. L’interfaccia è disponibile in 8 lingue, ma i testi degli usi esistono solo in rumeno e inglese (le altre sei lingue li mostrano in inglese); le traduzioni dell’interfaccia in francese, italiano, spagnolo, portoghese, tedesco e ungherese sono state prodotte con l’aiuto di un’IA e non sono state riviste da madrelingua.
 
 ## Sicurezza
 

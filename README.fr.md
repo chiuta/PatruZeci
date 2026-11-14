@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 3.1.0 · **Dernière mise à jour:** 2026-11-14
+**Version:** 3.2.0 · **Dernière mise à jour:** 2026-11-14
 
 **Statut:** stable · **Hors ligne:** complet (fonctionne depuis `file://`, sans réseau)
 
@@ -12,7 +12,7 @@
 
 Fiche courte : les 1993 usages de la liste officielle « 2000+ uses », plus d’autres trouvés sur le web, chacun avec sa propre illustration animée. Fichier unique, hors ligne, sans compte, sans pistage.
 
-Langue de l’interface : **Română** pour l’instant (le README existe en 8 langues : English, Română, Français, Italiano, Español, Português, Deutsch, Magyar).
+Langue de l’interface : **les 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (détectée automatiquement, à changer dans l’en-tête). Les textes des usages existent en roumain et en anglais ; les six autres langues les affichent pour l’instant en anglais.
 
 ## Description détaillée
 
@@ -25,20 +25,23 @@ PATRUZECI est une application web en un seul fichier, hors ligne (`index.html`, 
 | <img src="docs/screenshots/desktop-guide.png" alt="Guide : 147 fiches animées, filtres par catégorie et par fonction" width="100%"><br><sub>Guide : 147 fiches animées, filtres par catégorie et par fonction</sub> | <img src="docs/screenshots/desktop-full.png" alt="Liste complète : 2018 usages, six sections officielles et une section web" width="100%"><br><sub>Liste complète : 2018 usages, six sections officielles et une section web</sub> | <img src="docs/screenshots/desktop-modal.png" alt="Fiche détaillée avec illustration, niveau de risque et étiquettes de fonction" width="100%"><br><sub>Fiche détaillée avec illustration, niveau de risque et étiquettes de fonction</sub> |
 | <img src="docs/screenshots/desktop-web.png" alt="Section 🌐 : usages supplémentaires, mythes et avertissements issus d’articles web" width="100%"><br><sub>Section 🌐 : usages supplémentaires, mythes et avertissements issus d’articles web</sub> | <img src="docs/screenshots/tablet-full.png" alt="Tablette (trois colonnes)" width="100%"><br><sub>Tablette (trois colonnes)</sub> | <img src="docs/screenshots/phone-guide.png" alt="Téléphone : barre d’onglets en bas, grille à deux colonnes" width="100%"><br><sub>Téléphone : barre d’onglets en bas, grille à deux colonnes</sub> |
 | <img src="docs/screenshots/phone-full.png" alt="Téléphone : liste complète" width="100%"><br><sub>Téléphone : liste complète</sub> | <img src="docs/screenshots/phone-modal.png" alt="Téléphone : fiche détaillée en panneau coulissant, navigation par balayage" width="100%"><br><sub>Téléphone : fiche détaillée en panneau coulissant, navigation par balayage</sub> | <img src="docs/screenshots/desktop-avoid.png" alt="« À éviter » : où WD-40 n’est pas le bon choix" width="100%"><br><sub>« À éviter » : où WD-40 n’est pas le bon choix</sub> |
+| <img src="docs/screenshots/desktop-de.png" alt="Interface en allemand" width="100%"><br><sub>Interface en allemand</sub> | <img src="docs/screenshots/tablet-es.png" alt="Interface en espagnol (tablette)" width="100%"><br><sub>Interface en espagnol (tablette)</sub> | <img src="docs/screenshots/phone-hu.png" alt="Interface en hongrois (téléphone)" width="100%"><br><sub>Interface en hongrois (téléphone)</sub> |
 
 ## Contenu de l’application
 
 - **Guide** — 147 fiches rédigées à la main en 14 catégories, chacune avec des conseils, un niveau de risque (généralement sûr / prudence / déconseillé) et l’action du spray (lubrifie, débloque, nettoie, protège de la rouille, chasse l’humidité).
+- **8 langues** — toute l’interface (onglets, filtres, catégories, notes de sécurité, textes d’aide) en English, Română, Français, Italiano, Español, Português, Deutsch et Magyar, choisie d’après la langue du navigateur ou le sélecteur de l’en-tête.
 - **Liste complète** — les 1993 usages de la liste officielle « 2000+ uses », traduits en roumain, avec recherche et filtres par les six sections officielles et par fonction, et défilement infini. Plus une section 🌐 de 25 usages supplémentaires, mythes et avertissements tirés d’articles web récents.
 - **Animations** — 131 variantes de scènes (charnière, boulon, chaîne, tache, rouille, fermeture éclair, roue, poulie…) choisies automatiquement pour chaque usage. Elles se mettent en pause hors écran et s’arrêtent avec « Animations : arrêtées » ou si le système demande moins de mouvement.
 - **La sécurité d’abord** — 112 usages sont marqués « déconseillé » (freins, ceintures de sécurité, contact alimentaire, peau et animaux, dispositifs médicaux, disques vinyle…) et 245 « prudence », chacun avec une explication.
 - **Adaptatif** — téléphone (barre d’onglets en bas, détails en panneau coulissant, balayage), tablette, ordinateur (détails sur deux colonnes, touches fléchées), zones sûres de l’écran respectées.
 - **Onglets** — Fonctionnement, Gamme de produits WD-40, À éviter, Sources.
 - **Privé** — les favoris restent dans le stockage local du navigateur ; rien n’est envoyé nulle part.
+- **Installable et hors ligne** — manifeste, service worker et icônes (PWA), Content-Security-Policy stricte (aucune requête réseau), sans dépendances externes.
 
 ## Limites, en toute franchise
 
-Les illustrations sont des scènes animées génériques associées par règles à l’action et à l’objet de chaque usage, et non 2000 dessins uniques ; l’association automatique peut être approximative. La liste officielle vient des utilisateurs et **n’a pas été testée par WD-40 Company** ; elle est aussi très répétitive. La traduction roumaine a été réalisée avec l’aide de l’IA. L’interface n’existe pour l’instant qu’en roumain.
+Les illustrations sont des scènes animées génériques associées par règles à l’action et à l’objet de chaque usage, et non 2000 dessins uniques ; l’association automatique peut être approximative. La liste officielle vient des utilisateurs et **n’a pas été testée par WD-40 Company** ; elle est aussi très répétitive. La traduction roumaine a été réalisée avec l’aide de l’IA. L’interface est disponible en 8 langues, mais les textes des usages n’existent qu’en roumain et en anglais (les six autres langues les affichent en anglais) ; les traductions de l’interface en français, italien, espagnol, portugais, allemand et hongrois ont été produites avec l’aide d’une IA et n’ont pas été relues par des locuteurs natifs.
 
 ## Sécurité
 

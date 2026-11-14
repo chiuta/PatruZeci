@@ -24,7 +24,7 @@ jobs:
           python3 tools/build.py
           cmp index.html /tmp/index.committed.html
       - name: Prepare site
-        run: mkdir _site && cp index.html LICENSE _site/ && cp -r docs _site/
+        run: mkdir _site && cp index.html LICENSE manifest.webmanifest sw.js app.json icon-192.png icon-512.png icon-maskable-512.png _site/ && cp -r docs _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

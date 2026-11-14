@@ -1,23 +1,24 @@
 <header class="top"><div class="top-in">
 <div class="logo"><i></i><span>PATRU<b>ZECI</b></span></div>
 <nav class="tabs" id="tabs">
-<button data-tab="uses" class="on">Ghid</button><button data-tab="full">Lista completă</button><button data-tab="how">Cum funcționează</button><button data-tab="range">Gama</button><button data-tab="avoid">De evitat</button><button data-tab="src">Surse</button>
+<button data-tab="uses" class="on" data-i="t_uses"></button><button data-tab="full" data-i="t_full"></button><button data-tab="how" data-i="t_how"></button><button data-tab="range" data-i="t_range"></button><button data-tab="avoid" data-i="t_avoid"></button><button data-tab="src" data-i="t_src"></button>
 </nav>
-<button class="btn" id="motion" title="Pornește / oprește animațiile">Animații: pornite</button>
+<select class="btn" id="lang" data-ia="lang_label"></select><button class="btn" id="motion" data-it="mo_title"></button>
 </div></header>
+<div class="fbn" id="fbn" hidden></div>
 <main>
 <section class="tab on" id="tab-uses">
 <div class="hero">
 <div>
 <h1>PATRU<span>ZECI</span></h1>
-<p>Atlas ilustrat și animat al utilizărilor spray-ului multifuncțional WD-40: de la balamale care scârțâie până la lopeți cu pământ lipicios. Aplicație offline, fără urmărire, fără dependențe.</p>
-<div class="stats"><div class="stat"><b id="s-uses">0</b><small>în ghidul comentat</small></div><div class="stat"><b id="s-idx">0</b><small>în lista completă, toate animate (1993 din PDF + web)</small></div><div class="stat"><b id="s-cats">0</b><small>categorii</small></div></div>
+<p data-i="hero_p"></p>
+<div class="stats"><div class="stat"><b id="s-uses">0</b><small data-i="st_uses"></small></div><div class="stat"><b id="s-idx">0</b><small data-i="st_full"></small></div><div class="stat"><b id="s-cats">0</b><small data-i="st_cats"></small></div></div>
 </div>
 <div class="iw vis" id="hero-ill" style="background:none;aspect-ratio:240/150"></div>
 </div>
 <div class="ctl">
-<div class="row"><label class="search"><span>🔎</span><input id="q" type="search" placeholder="Caută: balamale, gumă, rugină, bicicletă…" autocomplete="off"></label>
-<button class="btn pri" id="rnd">🎲 Surprinde-mă</button><button class="btn" id="favonly">☆ Favorite</button><button class="btn" id="safe">Doar sigure</button><button class="btn" id="ftoggle" aria-expanded="false">⚙ Filtre</button></div>
+<div class="row"><label class="search"><span>🔎</span><input id="q" type="search" data-ip="q_ph" autocomplete="off"></label>
+<button class="btn pri" id="rnd" data-i="rnd"></button><button class="btn" id="favonly" data-i="favb"></button><button class="btn" id="safe" data-i="safeb"></button><button class="btn" id="ftoggle" aria-expanded="false" data-i="filt"></button></div>
 <div id="fpanel"><div class="chips" id="cats"></div>
 <div class="chips" id="fns" style="margin-top:6px"></div></div>
 </div>
@@ -28,50 +29,50 @@
 
 
 <section class="tab" id="tab-full">
-<h2 class="sec">Lista completă <small id="fn-total" style="color:var(--mut);font-weight:400"></small></h2>
-<p class="lead">Toate cele 1993 de utilizări din lista oficială „2000+ uses” de pe wd40.com, traduse în română, plus o secțiune 🌐 cu utilizări și mituri din alte surse web; fiecare are propria animație. Lista provine de la utilizatori și <b>nu a fost testată de WD-40 Company</b>. Cele marcate cu roșu sunt nerecomandate.</p>
+<h2 class="sec"><span data-i="f_title"></span> <small id="fn-total" style="color:var(--mut);font-weight:400"></small></h2>
+<p class="lead" data-h="f_lead"></p>
 <div class="ctl">
-<div class="row"><label class="search"><span>🔎</span><input id="fq" type="search" placeholder="Caută în toată lista: gumă, frână, zăvor…" autocomplete="off"></label>
-<button class="btn" id="fsafe">Doar sigure</button></div>
+<div class="row"><label class="search"><span>🔎</span><input id="fq" type="search" data-ip="fq_ph" autocomplete="off"></label>
+<button class="btn" id="fsafe" data-i="safeb"></button></div>
 <div class="chips" id="fcats"></div>
 <div class="chips" id="ffns" style="margin-top:6px"></div>
 </div>
 <div class="cnt" id="fcnt"></div>
 <div class="grid" id="fgrid"></div>
-<div id="fmore" style="text-align:center;padding:18px"><button class="btn" id="fmorebtn">Arată mai multe</button></div>
+<div id="fmore" style="text-align:center;padding:18px"><button class="btn" id="fmorebtn" data-i="more"></button></div>
 </section>
 
 <section class="tab" id="tab-how">
-<h2 class="sec">Cum funcționează</h2>
-<p class="lead">Numele vine de la <b>W</b>ater <b>D</b>isplacement, „deplasarea apei”: formula a 40-a încercată. A apărut în 1953 la Rocket Chemical Company (San Diego) ca să protejeze metalul de rugină și de umezeală în industria aerospațială; din 1958 s-a vândut și publicului.</p>
+<h2 class="sec" data-i="h_title"></h2>
+<p class="lead" data-h="h_lead"></p>
 <div class="two"><div class="box"><div class="iw vis" id="how-ill" style="background:none"></div></div>
-<div class="box"><h3>Ce face, pe scurt</h3><ul class="clean"><li><b>Alungă umezeala</b> de pe metal și de pe contacte.</li><li><b>Protejează</b> de rugină și coroziune printr-o peliculă subțire.</li><li><b>Desprinde</b> piulițe și șuruburi înțepenite.</li><li><b>Lubrifiază</b> ușor mecanismele mici.</li><li><b>Curăță</b> adezivi, urme și murdărie, ca solvent.</li></ul>
-<div class="note">Formula exactă este secretă; fișele de securitate publice indică în principal hidrocarburi alifatice (solvent) și ulei mineral. Citește eticheta și fișa de securitate (SDS).</div></div></div>
+<div class="box"><h3 data-i="h_what"></h3><ul class="clean"><li data-h="h_l1"></li><li data-h="h_l2"></li><li data-h="h_l3"></li><li data-h="h_l4"></li><li data-h="h_l5"></li></ul>
+<div class="note" data-i="h_note"></div></div></div>
 <div class="five" id="fiveill"></div>
-<div class="box"><h3>Din istorie</h3><div class="tl">
-<div><b>1953</b> — Rocket Chemical Company, San Diego: formula a 40-a, creată pentru a proteja de rugină.</div>
-<div><b>1958</b> — apare produsul în aerosol pentru consumatori.</div>
-<div><b>2023</b> — se lansează WD-40 Precision Pen pentru spații înguste.</div>
-<div><b>2025–2026</b> — apar variante noi: Low Odor, EZ-REACH cu pai flexibil, Specialist Spray &amp; Stay Gel și altele.</div>
+<div class="box"><h3 data-i="h_hist"></h3><div class="tl">
+<div data-h="h1"></div>
+<div data-h="h2"></div>
+<div data-h="h3"></div>
+<div data-h="h4"></div>
 </div></div>
-<div class="box" style="margin-top:14px"><h3>Reguli de siguranță (rezumat general)</h3><ul class="clean">
-<li>Aerosol inflamabil: nu pulveriza lângă flacără, scântei sau suprafețe fierbinți.</li>
-<li>Lucrează într-un loc ventilat; nu inhala și nu pulveriza lângă ochi sau față.</li>
-<li>Țineți departe de copii; nu perfora și nu arde recipientul.</li>
-<li>Testează pe un loc ascuns înainte de a aplica pe plastic, vopsea sau textile.</li>
-<li>Șterge excesul — pelicula uleioasă atrage praf și face pardoseala alunecoasă.</li>
-</ul><small style="color:var(--mut)">Urmează întotdeauna eticheta și fișa de securitate a produsului.</small></div>
+<div class="box" style="margin-top:14px"><h3 data-i="h_safe"></h3><ul class="clean">
+<li data-i="s1"></li>
+<li data-i="s2"></li>
+<li data-i="s3"></li>
+<li data-i="s4"></li>
+<li data-i="s5"></li>
+</ul><small style="color:var(--mut)" data-i="s_foot"></small></div>
 </section>
 
-<section class="tab" id="tab-range"><h2 class="sec">Gama</h2><p class="lead">Produsul clasic este universal; liniile Specialist sunt făcute pentru sarcini precise. Disponibilitatea variază în funcție de țară.</p><div class="grid" id="rangegrid"></div></section>
+<section class="tab" id="tab-range"><h2 class="sec" data-i="r_title"></h2><p class="lead" data-i="r_lead"></p><div class="grid" id="rangegrid"></div></section>
 
-<section class="tab" id="tab-avoid"><h2 class="sec">De evitat</h2><p class="lead">Locuri unde WD-40 nu este alegerea potrivită, și ce să folosești în loc.</p><div class="grid" id="avoidgrid"></div></section>
+<section class="tab" id="tab-avoid"><h2 class="sec" data-i="a_title"></h2><p class="lead" data-i="a_lead"></p><div class="grid" id="avoidgrid"></div></section>
 
-<section class="tab" id="tab-src"><h2 class="sec">Surse și note</h2>
-<div class="box"><h3>Despre lista de 2000+</h3><p>Lista oficială „2000+ utilizări” de pe wd40.com a fost compusă din relatările utilizatorilor și <b>nu a fost testată de WD-40 Company</b>; este foarte repetitivă (de ex. cuvinte ca „lubrifiază” apar de sute de ori). Tab-ul „Lista completă” le conține pe toate (1993 după eliminarea dublurilor), traduse și animate cu scene generice potrivite tipului de acțiune și obiectului; tab-ul „Ghid” are 147 de fișe comentate manual, cu sfaturi din articole web recente și riscuri marcate.</p><p>Actualizat la 14 noiembrie 2026.</p></div>
-<div class="box" style="margin-top:12px"><h3>Surse consultate</h3><ul class="clean" id="srcl"></ul></div>
-<div class="box" style="margin-top:12px"><h3>Notă</h3><p>Aplicație neoficială, independentă. WD-40 este marcă înregistrată a WD-40 Company. Ilustrațiile sunt create în această aplicație și nu reproduc ambalajul sau sigla produsului. Nu este recomandare tehnică sau medicală.</p></div>
+<section class="tab" id="tab-src"><h2 class="sec" data-i="s_title"></h2>
+<div class="box"><h3 data-i="s_ab"></h3><p data-h="s_abp"></p><p data-i="s_upd"></p></div>
+<div class="box" style="margin-top:12px"><h3 data-i="s_lst"></h3><ul class="clean" id="srcl"></ul></div>
+<div class="box" style="margin-top:12px"><h3 data-i="s_note_h"></h3><p data-i="s_note_p"></p></div>
 </section>
 </main>
-<div class="foot">PATRUZECI · atlasul utilizărilor WD-40 · neoficial · actualizat 14 noiembrie 2026 · funcționează offline, fără urmărire.</div>
+<div class="foot" data-i="foot"></div>
 <div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>

@@ -214,3 +214,12 @@ button,.chip,.btn,.fav{touch-action:manipulation}
  nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(11,19,27,.97);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));justify-content:space-around;overflow:visible;flex:none;gap:2px}
  nav.tabs button{flex:1;padding:10px 2px;font-size:13px;border-radius:12px;min-height:44px;line-height:1.15;white-space:normal}
 }
+/* limbă */
+[hidden]{display:none!important}
+select.btn{appearance:auto;color:inherit;max-width:130px;cursor:pointer}
+select.btn option{background:#16232e;color:#e6eef3}
+.fbn{max-width:1400px;margin:8px auto 0;padding:8px 14px;color:var(--mut);font-size:13px;border-left:3px solid var(--acc)}
+@media(max-width:760px){select.btn{min-height:36px;padding:6px 8px;font-size:13px;max-width:112px}.fbn{margin:8px 12px 0;padding:6px 10px}}
+#motion .mi{display:none}
+@media(max-width:760px){#motion .mt{display:none}#motion .mi{display:inline}#motion{min-width:44px}}
+@media(max-width:420px){nav.tabs button{font-size:11px;padding:10px 1px}}

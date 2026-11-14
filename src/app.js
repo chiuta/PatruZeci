@@ -2,17 +2,17 @@
 const $=s=>document.querySelector(s);
 const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
 const SOURCES=[
-['Top 26 utilizări neobișnuite (wd40.com)','https://www.wd40.com/useArticle/unusual-uses-wd40/'],
-['WD-40 Specialist: service pentru biciclete electrice (wd40.com)','https://www.wd40.com/article/wd-40-specialist-r-electric-bike-service-repair/'],
+['Top 26 unusual uses (wd40.com)','https://www.wd40.com/useArticle/unusual-uses-wd40/'],
+['WD-40 Specialist: e-bike service (wd40.com)','https://www.wd40.com/article/wd-40-specialist-r-electric-bike-service-repair/'],
 ['Surprising Uses for WD-40 (And When Not to Use It) (Cheapism)','https://www.cheapism.com/uses-wd40'],
 ['18 Genius WD-40 Uses (Bob Vila)','https://www.bobvila.com/slideshow/9-unusual-ways-to-use-wd-40-48621'],
 ['12 WD-40 Hacks You\'ll Wish You Knew Sooner (SlashGear)','https://www.slashgear.com/1476225/wd-40-hacks-youll-wish-you-knew-sooner'],
 ['15 Ingenious Uses for WD-40 (Wide Open Country)','https://www.wideopencountry.com/?p=37316'],
 ['Unusual Uses for WD-40 (Instructables)','https://instructables.com/Unusual-Uses-for-WD-40'],
 ['WD-40 (Snopes)','https://www.snopes.com/inboxer/household/wd-40.asp'],
-['Lista oficială „2000+ uses” (PDF, wd40.com)','https://img.thrfun.com/downloads/wd-40_2000useslist.pdf'],
-['WD-40: ce este sigur și ce trebuie evitat (wd40.com)','https://www.wd40.com/article/what-wd-40-r-multi-use-product-is-safe-on-and-what-to-avoid/'],
-['Harta site-ului wd40.com (produse noi)','https://www.wd40.com/sitemap/'],
+['Official “2000+ uses” list (PDF, wd40.com)','https://img.thrfun.com/downloads/wd-40_2000useslist.pdf'],
+['WD-40: what is safe and what to avoid (wd40.com)','https://www.wd40.com/article/what-wd-40-r-multi-use-product-is-safe-on-and-what-to-avoid/'],
+['wd40.com sitemap (new products)','https://www.wd40.com/sitemap/'],
 ['Almost 2000 uses for a can of WD-40 (Wise Bread)','https://www.wisebread.com/almost-2000-uses-for-a-can-of-wd-40-1'],
 ['6 Practical Uses For WD-40 Around The Garage (SlashGear)','https://www.slashgear.com/1615121/wd-40-practical-uses-garage-mechanic'],
 ['11 WD-40 Uses Every DIYer Should Know (SlashGear)','https://www.slashgear.com/2296296/best-wd-40-uses-for-diyers/'],
@@ -22,9 +22,16 @@ const SOURCES=[
 ['5 surprising places you should never use WD-40 (Homes & Gardens)','https://www.homesandgardens.com/solved/never-use-wd-40-these-places'],
 ['34 WD-40 Hacks (Family Handyman / Reader\'s Digest)','https://f-cce-6908.fhm.r.tmbi.com/?p=94555'],
 ['20 ingenious uses for WD-40 (Popular Science)','https://www.popsci.com/story/diy/strange-and-ingenuous-uses-for-wd-40/'],
-['Lansare WD-40 Precision Pen (Business Wire, 2023)','https://secure.businesswire.com/news/home/20230726501144/en/WD-40-Brand-Launches-WD-40-Precision-Pen'],
+['WD-40 Precision Pen launch (Business Wire, 2023)','https://secure.businesswire.com/news/home/20230726501144/en/WD-40-Brand-Launches-WD-40-Precision-Pen'],
 ['WD-40 Specialist Bio Lubricant (Biofuels Digest)','https://biofuelsdigest.com/tag/wd-40/']
 ];
+/* ---- i18n ---- */
+const SQK={ro:'scârț!',en:'squeak!',fr:'grinc !',it:'cric!',es:'ñiiic!',pt:'rangg!',de:'quietsch!',hu:'nyikk!'};
+function sqk(){return SQK[LANG]||SQK.en;}
+let LANG='ro';
+const RO0={uses:USES.map(u=>[u.t,u.d,u.n]),full:FULL.map(x=>x[1]),fnote:FULL.map(x=>x[5]||''),range:RANGE.map(r=>[r.t,r.d]),avoid:AVOID.map(a=>[a.t,a.d,a.a])};
+function T(k,v){let s=(UI[LANG]&&UI[LANG][k]!==undefined)?UI[LANG][k]:UI.en[k];if(typeof s!=='string')return '';if(v)s=s.replace(/\{(\w+)\}/g,(m,n)=>v[n]!==undefined?v[n]:m);return s;}
+function cntText(n,m,q,shown){return T('cnt',{n,m})+(q?T('forq',{q}):'')+(shown!==undefined?T('shown',{n:shown}):'');}
 let _id=0;
 function illust(scene,param,label){
   const f=S[scene];let inner='';
@@ -50,7 +57,7 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{
 
 function riskTag(r){return `<span class="tag r${r}">${RISK[r]}</span>`;}
 function cardHTML(u){
-  return `<article class="card" data-i="${u.id}" tabindex="0" aria-label="${esc(u.t)}"><div class="iw"></div><span class="catb">${CATS[u.c][1]}</span><button class="fav" data-f="${u.id}" aria-label="Favorit">${favs.has(u.id)?'★':'☆'}</button><div class="cb"><h3>${esc(u.t)}</h3><p>${esc(u.d)}</p><div class="tags">${riskTag(u.r)}${[...u.f].map(k=>`<span class="tag">${FUNCS[k]}</span>`).join('')}</div></div></article>`;
+  return `<article class="card" data-i="${u.id}" tabindex="0" aria-label="${esc(u.t)}"><div class="iw"></div><span class="catb">${CATS[u.c][1]}</span><button class="fav" data-f="${u.id}" aria-label="${T('favaria')}">${favs.has(u.id)?'★':'☆'}</button><div class="cb"><h3>${esc(u.t)}</h3><p>${esc(u.d)}</p><div class="tags">${riskTag(u.r)}${[...u.f].map(k=>`<span class="tag">${FUNCS[k]}</span>`).join('')}</div></div></article>`;
 }
 function matches(u){
   if(state.cat&&u.c!==state.cat)return false;
@@ -62,27 +69,27 @@ function matches(u){
 }
 function render(){
   const list=USES.filter(matches);curIds=list.map(u=>u.id);
-  $('#cnt').textContent=`${list.length} din ${USES.length} utilizări`+(state.q?` pentru „${state.q}”`:'');
+  $('#cnt').textContent=cntText(list.length,USES.length,state.q);
   const g=$('#grid');
   g.querySelectorAll('.card').forEach(c=>io.unobserve(c));
-  g.innerHTML=list.length?list.map(cardHTML).join(''):'<div class="empty">Nimic găsit. Încearcă alt cuvânt sau scoate un filtru.</div>';
+  g.innerHTML=list.length?list.map(cardHTML).join(''):`<div class="empty">${T('empty')}</div>`;
   g.querySelectorAll('.card').forEach(c=>io.observe(c));
 }
 /* ---- filtre ---- */
+function labelChips(){
+  $('#cats').innerHTML=`<button class="chip${state.cat===''?' on':''}" data-c="">${T('all')}</button>`+Object.keys(CATS).map(k=>`<button class="chip${state.cat===k?' on':''}" data-c="${k}">${CATS[k][1]} ${CATS[k][0]}</button>`).join('');
+  $('#fns').innerHTML=Object.keys(FUNCS).map(k=>`<button class="chip fn${state.fn.has(k)?' on':''}" data-k="${k}">${FUNCS[k]}</button>`).join('');
+}
 function buildChips(){
-  const c=$('#cats');
-  c.innerHTML=`<button class="chip on" data-c="">Toate</button>`+Object.keys(CATS).map(k=>`<button class="chip" data-c="${k}">${CATS[k][1]} ${CATS[k][0]}</button>`).join('');
-  c.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;state.cat=b.dataset.c;c.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));render();});
-  const f=$('#fns');
-  f.innerHTML=Object.keys(FUNCS).map(k=>`<button class="chip fn" data-k="${k}">${FUNCS[k]}</button>`).join('');
-  f.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;if(state.fn.has(k)){state.fn.delete(k);b.classList.remove('on');}else{state.fn.add(k);b.classList.add('on');}render();});
+  $('#cats').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;state.cat=b.dataset.c;labelChips();render();});
+  $('#fns').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;if(state.fn.has(k))state.fn.delete(k);else state.fn.add(k);labelChips();render();});
 }
 /* ---- modal ---- */
 function openUse(id){
   const u=USES[id];if(!u)return;
   const rel=USES.filter(x=>x.c===u.c&&x.id!==u.id).slice(0,4);
-  const note=u.n?`<div class="note ${u.r===2?'bad':''}"><b>${u.r===2?'Nerecomandat. ':'Atenție. '}</b>${esc(u.n)}</div>`:(u.r===2?`<div class="note bad"><b>Nerecomandat.</b> Raportat de utilizatori, dar evită-l.</div>`:'');
-  $('#sheet').innerHTML=`<div class="iw vis">${illust(u.s,u.p,u.t)}</div><div class="sb"><div class="mnav"><button class="btn" data-nav="-1" aria-label="Anterioara">‹</button><button class="btn" data-nav="1" aria-label="Următoarea">›</button><button class="x" id="mx" aria-label="Închide">✕</button></div><h2>${esc(u.t)}</h2><div class="tags">${riskTag(u.r)}${[...u.f].map(k=>`<span class="tag">${FUNCS[k]}</span>`).join('')}<span class="tag">${CATS[u.c][1]} ${CATS[u.c][0]}</span><span class="tag">${SRC[u.src]}</span></div><p>${esc(u.d)}</p>${note}${rel.length?`<div class="rel">${rel.map(x=>`<button class="chip" data-o="${x.id}">${esc(x.t)}</button>`).join('')}</div>`:''}<div class="rel"><button class="btn" data-fav="${u.id}">${favs.has(u.id)?'★ În favorite':'☆ Adaugă la favorite'}</button></div></div>`;
+  const note=u.n?`<div class="note ${u.r===2?'bad':''}"><b>${u.r===2?T('unrec'):T('caution')}</b>${esc(u.n)}</div>`:(u.r===2?`<div class="note bad"><b>${T('unrec')}</b>${esc(T('unrec_def'))}</div>`:'');
+  $('#sheet').innerHTML=`<div class="iw vis">${illust(u.s,u.p,u.t)}</div><div class="sb"><div class="mnav"><button class="btn" data-nav="-1" aria-label="${T('prev')}">‹</button><button class="btn" data-nav="1" aria-label="${T('next')}">›</button><button class="x" id="mx" aria-label="${T('close')}">✕</button></div><h2>${esc(u.t)}</h2><div class="tags">${riskTag(u.r)}${[...u.f].map(k=>`<span class="tag">${FUNCS[k]}</span>`).join('')}<span class="tag">${CATS[u.c][1]} ${CATS[u.c][0]}</span><span class="tag">${SRC[u.src]}</span></div><p>${esc(u.d)}</p>${note}${rel.length?`<div class="rel">${rel.map(x=>`<button class="chip" data-o="${x.id}">${esc(x.t)}</button>`).join('')}</div>`:''}<div class="rel"><button class="btn" data-fav="${u.id}">${favs.has(u.id)?T('favin'):T('favadd')}</button></div></div>`;
   $('#modal').classList.add('on');document.body.style.overflow='hidden';
   $('#modal').dataset.u=id;$('#modal').dataset.m='u';
   $('#sheet').scrollTop=0;
@@ -100,20 +107,21 @@ function toggleFav(id){
 }
 function setMotion(off){
   state.rm=off;document.body.classList.toggle('rm',off);
-  $('#motion').textContent=off?'Animații: oprite':'Animații: pornite';
+  motionLabel();
 }
+function motionLabel(){const t=state.rm?T('mo_off'):T('mo_on');const b=$('#motion');b.innerHTML=`<span class="mi">${state.rm?'⏸':'▶'}</span><span class="mt"> ${esc(t)}</span>`;b.setAttribute('aria-label',t);}
 function tab(k){
   document.querySelectorAll('section.tab').forEach(s=>s.classList.toggle('on',s.id==='tab-'+k));
   document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===k));
   window.scrollTo({top:0,behavior:'instant'});
 }
 function buildStatic(){
-  $('#hero-ill').innerHTML=illust('gear','','Angrenaj ruginit, curățat prin pulverizare');
-  $('#how-ill').innerHTML=illust('displace','','Deplasarea apei de pe metal');
-  const five=[['Protejează','rust','shovel','Peliculă subțire contra ruginii.'],['Desprinde','bolt','nut','Pătrunde în filet și slăbește rugina.'],['Alungă umezeala','drops','cap','Împinge apa de pe suprafață.'],['Lubrifiază','hinge','door','Reduce frecarea și scârțâitul.'],['Curăță','stain','wall|#e8473b|scribble','Dizolvă adezivi, urme și murdărie.']];
+  $('#hero-ill').innerHTML=illust('gear','',T('alt_hero'));
+  $('#how-ill').innerHTML=illust('displace','',T('alt_how'));
+  const five=[[T('fv1'),'rust','shovel',T('fd1')],[T('fv2'),'bolt','nut',T('fd2')],[T('fv3'),'drops','cap',T('fd3')],[T('fv4'),'hinge','door',T('fd4')],[T('fv5'),'stain','wall|#e8473b|scribble',T('fd5')]];
   $('#fiveill').innerHTML=five.map(a=>`<div class="box vis"><div class="iw" style="background:none">${illust(a[1],a[2],a[0])}</div><h3 style="margin-top:8px">${a[0]}</h3><div style="color:var(--mut);font-size:14px">${a[3]}</div></div>`).join('');
   $('#rangegrid').innerHTML=RANGE.map(r=>`<article class="card vis" style="cursor:default"><div class="iw">${illust(r.s,r.p,r.t)}</div><div class="cb"><h3>${esc(r.t)}</h3><p style="display:block">${esc(r.d)}</p></div></article>`).join('');
-  $('#avoidgrid').innerHTML=AVOID.map(a=>`<article class="card vis" style="cursor:default"><div class="iw">${illust('warn',a.s,a.t)}</div><div class="cb"><h3>${esc(a.t)}</h3><p style="display:block">${esc(a.d)}</p><div class="tags"><span class="tag r0">Mai bine: ${esc(a.a)}</span></div></div></article>`).join('');
+  $('#avoidgrid').innerHTML=AVOID.map(a=>`<article class="card vis" style="cursor:default"><div class="iw">${illust('warn',a.s,a.t)}</div><div class="cb"><h3>${esc(a.t)}</h3><p style="display:block">${esc(a.d)}</p><div class="tags"><span class="tag r0">${T('better')}${esc(a.a)}</span></div></div></article>`).join('');
   $('#srcl').innerHTML=SOURCES.map(s=>`<li><a href="${s[1]}" target="_blank" rel="noopener noreferrer">${esc(s[0])}</a></li>`).join('');
   $('#s-uses').textContent=USES.length;$('#s-idx').textContent=FULL.length;$('#s-cats').textContent=Object.keys(CATS).length;
 }
@@ -121,7 +129,7 @@ function buildStatic(){
 /* ---- lista completă (1993) ---- */
 const fs={sec:-1,fn:new Set(),q:'',safe:false};
 let fList=[],fShown=0;const FBATCH=48;
-const FRO=FULL.map(x=>norm(x[1]));
+let FRO=FULL.map(x=>norm(x[1]));
 function fMatch(i){
   const x=FULL[i];
   if(fs.sec>=0&&x[0]!==fs.sec)return false;
@@ -141,18 +149,18 @@ function fMore(){
   g.querySelectorAll('.card:not([data-obs])').forEach(c=>{c.dataset.obs=1;io.observe(c);});
   fShown=end;
   $('#fmore').style.display=fShown<fList.length?'block':'none';
-  $('#fcnt').textContent=`${fList.length} din ${FULL.length} utilizări`+(fs.q?` pentru „${fs.q}”`:'')+(fShown<fList.length?` · afișate ${fShown}`:'');
+  $('#fcnt').textContent=cntText(fList.length,FULL.length,fs.q,fShown<fList.length?fShown:undefined);
 }
 function fRender(){
   fList=[];for(let i=0;i<FULL.length;i++)if(fMatch(i))fList.push(i);
   const g=$('#fgrid');g.querySelectorAll('.card').forEach(c=>io.unobserve(c));g.innerHTML='';fShown=0;
-  if(!fList.length){g.innerHTML='<div class="empty">Nimic găsit. Încearcă alt cuvânt sau scoate un filtru.</div>';$('#fmore').style.display='none';$('#fcnt').textContent=`0 din ${FULL.length} utilizări`;return;}
+  if(!fList.length){g.innerHTML=`<div class="empty">${T('empty')}</div>`;$('#fmore').style.display='none';$('#fcnt').textContent=cntText(0,FULL.length);return;}
   fMore();
 }
 function openFull(i){
   const x=FULL[i];if(!x)return;const sc=FSC[x[2]];const wp=sc[0]==='warn'?FWARN[sc[1]]:'';
-  const note=x[5]?`<div class="note ${x[4]===2?'bad':''}"><b>${x[4]===2?'Nerecomandat. ':'Atenție. '}</b>${esc(x[5])}</div>`:x[4]===2?`<div class="note bad"><b>Nerecomandat. </b>${esc(wp||'Raportat de utilizatori, dar evită-l.')}</div>`:(x[4]===1?`<div class="note"><b>Atenție. </b>Testează întâi pe un loc ascuns; pentru uz de durată, pe încuietori, lanțuri sau plastic, alege un produs specializat.</div>`:'');
-  $('#sheet').innerHTML=`<div class="iw vis">${illust(sc[0],sc[1],x[1])}</div><div class="sb"><div class="mnav"><button class="btn" data-nav="-1" aria-label="Anterioara">‹</button><button class="btn" data-nav="1" aria-label="Următoarea">›</button><button class="x" id="mx" aria-label="Închide">✕</button></div><h2>${esc(x[1])}</h2><div class="tags">${riskTag(x[4])}${[...x[3]].map(k=>`<span class="tag">${FUNCS[k]}</span>`).join('')}<span class="tag">${FSEC[x[0]][1]} ${FSEC[x[0]][0]}</span><span class="tag">#${i+1} din ${FULL.length}</span></div>${note}<p style="color:var(--mut);font-size:13px">${x[0]===6?'Preluat din articole web recente (vezi „Surse”), parafrazat; nu este recomandare a producătorului.':'Relatare a unui utilizator din lista oficială „2000+ uses”, netestată de WD-40 Company.'} Folosește bunul-simț și urmează eticheta produsului.</p></div>`;
+  const note=x[5]?`<div class="note ${x[4]===2?'bad':''}"><b>${x[4]===2?T('unrec'):T('caution')}</b>${esc(x[5])}</div>`:x[4]===2?`<div class="note bad"><b>${T('unrec')}</b>${esc(wp||T('unrec_def'))}</div>`:(x[4]===1?`<div class="note"><b>${T('caution')}</b>${esc(T('caution_def'))}</div>`:'');
+  $('#sheet').innerHTML=`<div class="iw vis">${illust(sc[0],sc[1],x[1])}</div><div class="sb"><div class="mnav"><button class="btn" data-nav="-1" aria-label="${T('prev')}">‹</button><button class="btn" data-nav="1" aria-label="${T('next')}">›</button><button class="x" id="mx" aria-label="${T('close')}">✕</button></div><h2>${esc(x[1])}</h2><div class="tags">${riskTag(x[4])}${[...x[3]].map(k=>`<span class="tag">${FUNCS[k]}</span>`).join('')}<span class="tag">${FSEC[x[0]][1]} ${FSEC[x[0]][0]}</span><span class="tag">${esc(T('nr',{i:i+1,n:FULL.length}))}</span></div>${note}<p style="color:var(--mut);font-size:13px">${x[0]===6?T('note_web'):T('note_user')}${T('common')}</p></div>`;
   $('#modal').classList.add('on');document.body.style.overflow='hidden';
   $('#modal').dataset.u=i;$('#modal').dataset.m='f';$('#sheet').scrollTop=0;
 }
@@ -160,13 +168,13 @@ function stepFull(dir){
   const cur=+$('#modal').dataset.u;const l=fList.includes(cur)?fList:FULL.map((_,i)=>i);
   const k=l.indexOf(cur);openFull(l[(k+dir+l.length)%l.length]);
 }
+function labelFChips(){
+  $('#fcats').innerHTML=`<button class="chip${fs.sec===-1?' on':''}" data-c="-1">${T('all')}</button>`+FSEC.map((s,i)=>`<button class="chip${fs.sec===i?' on':''}" data-c="${i}">${s[1]} ${s[0]}</button>`).join('');
+  $('#ffns').innerHTML=Object.keys(FUNCS).map(k=>`<button class="chip fn${fs.fn.has(k)?' on':''}" data-k="${k}">${FUNCS[k]}</button>`).join('');
+}
 function buildFull(){
-  const c=$('#fcats');
-  c.innerHTML=`<button class="chip on" data-c="-1">Toate</button>`+FSEC.map((s,i)=>`<button class="chip" data-c="${i}">${s[1]} ${s[0]}</button>`).join('');
-  c.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;fs.sec=+b.dataset.c;c.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));fRender();});
-  const f=$('#ffns');
-  f.innerHTML=Object.keys(FUNCS).map(k=>`<button class="chip fn" data-k="${k}">${FUNCS[k]}</button>`).join('');
-  f.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;if(fs.fn.has(k)){fs.fn.delete(k);b.classList.remove('on');}else{fs.fn.add(k);b.classList.add('on');}fRender();});
+  $('#fcats').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;fs.sec=+b.dataset.c;labelFChips();fRender();});
+  $('#ffns').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;if(fs.fn.has(k))fs.fn.delete(k);else fs.fn.add(k);labelFChips();fRender();});
   $('#fq').addEventListener('input',e=>{fs.q=e.target.value.trim();fRender();});
   $('#fsafe').addEventListener('click',e=>{fs.safe=!fs.safe;e.currentTarget.classList.toggle('pri',fs.safe);fRender();});
   $('#fmorebtn').addEventListener('click',fMore);
@@ -175,12 +183,49 @@ function buildFull(){
   $('#fgrid').addEventListener('click',e=>{const c=e.target.closest('.card');if(c&&c.dataset.fi!==undefined)openFull(+c.dataset.fi);});
   $('#fgrid').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const c=e.target.closest('.card');if(c&&c.dataset.fi!==undefined){e.preventDefault();openFull(+c.dataset.fi);}}});
   $('#fn-total').textContent='('+FULL.length+')';
-  fRender();
+}
+/* ---- schimbarea limbii ---- */
+function setLang(l){
+  if(!UI[l])l='en';LANG=l;
+  try{localStorage.setItem('patruzeci-lang',l);}catch(e){}
+  document.documentElement.lang=l;
+  const U=UI[l];
+  for(const k in CATS)CATS[k][0]=U.cats[k];
+  for(const k in FUNCS)FUNCS[k]=U.funcs[k];
+  for(let i=0;i<3;i++)RISK[i]=U.risk[i];
+  for(const k in SRC)SRC[k]=U.srcn[k];
+  FSEC.forEach((s,i)=>{s[0]=U.fsec[i];});
+  for(const k in FWARN)FWARN[k]=U.fwarn[k];
+  const P=l==='ro'?RO0:CEN;
+  USES.forEach((u,i)=>{const a=P.uses[i];u.t=a[0];u.d=a[1];u.n=a[2]||'';});
+  FULL.forEach((x,i)=>{x[1]=P.full[i];x[5]=l==='ro'?RO0.fnote[i]:(P.fnote[i]||'');});
+  RANGE.forEach((r,i)=>{r.t=P.range[i][0];r.d=P.range[i][1];});
+  AVOID.forEach((a,i)=>{a.t=P.avoid[i][0];a.d=P.avoid[i][1];a.a=P.avoid[i][2];});
+  FRO=FULL.map(x=>norm(x[1]));
+  document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=T(e.dataset.i);});
+  document.querySelectorAll('[data-h]').forEach(e=>{e.innerHTML=T(e.dataset.h);});
+  document.querySelectorAll('[data-ip]').forEach(e=>{e.placeholder=T(e.dataset.ip);});
+  document.querySelectorAll('[data-it]').forEach(e=>{e.title=T(e.dataset.it);});
+  document.querySelectorAll('[data-ia]').forEach(e=>{e.setAttribute('aria-label',T(e.dataset.ia));});
+  const fb=$('#fbn');fb.textContent=U.fb_notice||'';fb.hidden=!U.fb_notice;
+  $('#lang').value=l;
+  document.title='PATRUZECI — WD-40';
+  motionLabel();buildStatic();labelChips();labelFChips();render();fRender();
+  if($('#modal').classList.contains('on'))closeModal();
+}
+function pickLang(){
+  try{const s=localStorage.getItem('patruzeci-lang');if(s&&UI[s])return s;}catch(e){}
+  const ls=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en']);
+  for(const x of ls){const p=String(x).toLowerCase().slice(0,2);if(UI[p])return p;}
+  return 'en';
 }
 function init(){
-  buildStatic();buildChips();render();buildFull();
+  $('#lang').innerHTML=UIL.map(l=>`<option value="${l}">${LNAME[l]}</option>`).join('');
+  $('#lang').addEventListener('change',e=>setLang(e.target.value));
+  buildChips();buildFull();
   const mq=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
-  setMotion(!!(mq&&mq.matches));
+  state.rm=!!(mq&&mq.matches);document.body.classList.toggle('rm',state.rm);
+  setLang(pickLang());
   $('#q').addEventListener('input',e=>{state.q=e.target.value.trim();render();});
   $('#favonly').addEventListener('click',e=>{state.fav=!state.fav;e.currentTarget.classList.toggle('pri',state.fav);render();});
   $('#safe').addEventListener('click',e=>{state.safe=!state.safe;e.currentTarget.classList.toggle('pri',state.safe);render();});
@@ -195,7 +240,7 @@ function init(){
     if(e.target.id==='modal'||e.target.id==='mx'){closeModal();return;}
     const nv=e.target.closest('[data-nav]');if(nv){stepUse(+nv.dataset.nav);return;}
     const o=e.target.closest('[data-o]');if(o){openUse(+o.dataset.o);return;}
-    const f=e.target.closest('[data-fav]');if(f){const id=+f.dataset.fav;toggleFav(id);f.textContent=favs.has(id)?'★ În favorite':'☆ Adaugă la favorite';}
+    const f=e.target.closest('[data-fav]');if(f){const id=+f.dataset.fav;toggleFav(id);f.textContent=favs.has(id)?T('favin'):T('favadd');}
   });
   document.addEventListener('keydown',e=>{if(!$('#modal').classList.contains('on'))return;if(e.key==='Escape')closeModal();else if(e.key==='ArrowRight')stepUse(1);else if(e.key==='ArrowLeft')stepUse(-1);});
   $('#ftoggle').addEventListener('click',e=>{const o=$('#fpanel').classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',o);e.currentTarget.classList.toggle('pri',o);});

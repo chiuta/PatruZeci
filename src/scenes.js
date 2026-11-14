@@ -33,7 +33,7 @@ S.hinge=p=>{
 <g class="swing" style="transform-origin:72px 100px"><rect x="72" y="95" width="96" height="10" rx="2" fill="${col}" stroke="#6a5a48" stroke-width="1.5"/></g>
 <circle cx="72" cy="100" r="7" fill="#8e99a3" stroke="#4e5b66" stroke-width="2"/>
 <circle class="fo" cx="72" cy="100" r="11" fill="none" stroke="#b5532a" stroke-width="4" stroke-dasharray="5 3"/>
-<text class="fo sq" x="124" y="62" text-anchor="middle">scârț!</text>
+<text class="fo sq" x="124" y="62" text-anchor="middle">${typeof sqk==='function'?sqk():'scârț!'}</text>
 ${spray(30,40,60)}${ok()}`;
 };
 S.bolt=p=>{
