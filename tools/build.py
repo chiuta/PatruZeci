@@ -14,7 +14,13 @@ sw = ("if('serviceWorker' in navigator&&window.isSecureContext&&/^https?:$/.test
 main = f'\n{js}\n'
 def h(x):
     return "'sha256-" + base64.b64encode(hashlib.sha256(x.encode('utf8')).digest()).decode() + "'"
-csp = ("default-src 'none'; script-src " + h(main) + ' ' + h(sw) +
+# Shared modules (<script id="fff-mod-...">, e.g. fff-texturi) are injected into index.html by the shared tooling
+# (inject-shared.mjs), not built from src/: carry them over verbatim from the committed index.html, together with
+# their CSP hashes, so that a rebuild (and the CI "index.html is up to date" check) keeps them.
+prev = (root / 'index.html').read_text(encoding='utf-8') if (root / 'index.html').exists() else ''
+shared = [(m.group(0), m.group(2)) for m in re.finditer(r'<script id="(fff-mod-[a-z0-9-]+)">([\s\S]*?)</script>\n?', prev)]
+shared_html = ''.join(block for block, _ in shared)
+csp = ("default-src 'none'; script-src " + h(main) + ' ' + h(sw) + ''.join(' ' + h(body) for _, body in shared) +
        "; style-src 'unsafe-inline'; img-src 'self' data:; worker-src 'self'; connect-src 'none'; "
        "base-uri 'none'; form-action 'none'; manifest-src 'self'")
 html = f'''<!doctype html>
@@ -30,7 +36,7 @@ html = f'''<!doctype html>
 <style>{css}</style></head><body>
 {shell}
 <script>{main}</script>
-<script>{sw}</script></body></html>'''
+<script>{sw}</script>{shared_html}</body></html>'''
 out = root / 'index.html'
 out.write_text(html, encoding='utf-8')
 raw = html.encode('utf-8')
