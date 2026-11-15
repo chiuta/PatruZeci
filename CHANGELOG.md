@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.3.0 — 2026-11-15
+
+- French: all 2018 list entries, the 147 guide entries, the product range, “what to avoid” and the web notes are now translated into French (AI-assisted, not reviewed by native speakers). The other five languages follow, one release each.
+
 ## 3.2.1 — 2026-11-15
 
 - New: hyper-detailed fractal textures (fff-texturi 1.1.2) — the background and large surfaces (cards, panels, headers, buttons; tabs and dialogs that are hidden at load, once they open) get a locally generated material (WebGL2, no network, no images) that tiles seamlessly; the app keeps its own colours. Turn it off in the "Transparency" dialog or with `?notex=1`.

@@ -196,7 +196,7 @@ function setLang(l){
   for(const k in SRC)SRC[k]=U.srcn[k];
   FSEC.forEach((s,i)=>{s[0]=U.fsec[i];});
   for(const k in FWARN)FWARN[k]=U.fwarn[k];
-  const P=l==='ro'?RO0:CEN;
+  const P=l==='ro'?RO0:(CPK[l]||CEN);
   USES.forEach((u,i)=>{const a=P.uses[i];u.t=a[0];u.d=a[1];u.n=a[2]||'';});
   FULL.forEach((x,i)=>{x[1]=P.full[i];x[5]=l==='ro'?RO0.fnote[i]:(P.fnote[i]||'');});
   RANGE.forEach((r,i)=>{r.t=P.range[i][0];r.d=P.range[i][1];});
@@ -207,7 +207,7 @@ function setLang(l){
   document.querySelectorAll('[data-ip]').forEach(e=>{e.placeholder=T(e.dataset.ip);});
   document.querySelectorAll('[data-it]').forEach(e=>{e.title=T(e.dataset.it);});
   document.querySelectorAll('[data-ia]').forEach(e=>{e.setAttribute('aria-label',T(e.dataset.ia));});
-  const fb=$('#fbn');fb.textContent=U.fb_notice||'';fb.hidden=!U.fb_notice;
+  const fb=$('#fbn');fb.textContent=U.fb_notice||'';fb.hidden=!U.fb_notice||!!CPK[l];
   $('#lang').value=l;
   document.title='PATRUZECI — WD-40';
   motionLabel();buildStatic();labelChips();labelFChips();render();fRender();

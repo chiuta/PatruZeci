@@ -12,7 +12,7 @@
 
 Fiche courte : les 1993 usages de la liste officielle « 2000+ uses », plus d’autres trouvés sur le web, chacun avec sa propre illustration animée. Fichier unique, hors ligne, sans compte, sans pistage.
 
-Langue de l’interface : **les 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (détectée automatiquement, à changer dans l’en-tête). Les textes des usages existent en roumain et en anglais ; les six autres langues les affichent pour l’instant en anglais.
+Langue de l’interface : **les 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (détectée automatiquement, à changer dans l’en-tête). Les textes des usages (2018 entrées) existent en roumain, anglais et français ; les cinq autres langues les affichent pour l’instant en anglais.
 
 ## Description détaillée
 
@@ -41,7 +41,7 @@ PATRUZECI est une application web en un seul fichier, hors ligne (`index.html`, 
 
 ## Limites, en toute franchise
 
-Les illustrations sont des scènes animées génériques associées par règles à l’action et à l’objet de chaque usage, et non 2000 dessins uniques ; l’association automatique peut être approximative. La liste officielle vient des utilisateurs et **n’a pas été testée par WD-40 Company** ; elle est aussi très répétitive. La traduction roumaine a été réalisée avec l’aide de l’IA. L’interface est disponible en 8 langues, mais les textes des usages n’existent qu’en roumain et en anglais (les six autres langues les affichent en anglais) ; les traductions de l’interface en français, italien, espagnol, portugais, allemand et hongrois ont été produites avec l’aide d’une IA et n’ont pas été relues par des locuteurs natifs.
+Les illustrations sont des scènes animées génériques associées par règles à l’action et à l’objet de chaque usage, et non 2000 dessins uniques ; l’association automatique peut être approximative. La liste officielle vient des utilisateurs et **n’a pas été testée par WD-40 Company** ; elle est aussi très répétitive. La traduction roumaine a été réalisée avec l’aide de l’IA. L’interface est disponible en 8 langues, mais les textes des usages existent en roumain, anglais et français (les cinq autres langues les affichent en anglais) ; les traductions de l’interface en français, italien, espagnol, portugais, allemand et hongrois ont été produites avec l’aide d’une IA et n’ont pas été relues par des locuteurs natifs.
 
 ## Sécurité
 
