@@ -12,7 +12,7 @@
 
 Ficha curta: todos os 1993 usos da lista oficial «2000+ uses», mais outros da web, cada um com a sua própria ilustração animada. Ficheiro único, offline, sem conta, sem rastreamento.
 
-Idioma da interface: **todos os 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (detetado automaticamente, muda-se no cabeçalho). Os textos dos usos (2018 entradas) existem em romeno, inglês, francês, italiano, espanhol e português; os outros dois idiomas mostram-nos por agora em inglês.
+Idioma da interface: **todos os 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (detetado automaticamente, muda-se no cabeçalho). Os textos dos usos (2018 entradas) existem nos 8 idiomas.
 
 ## Descrição detalhada
 

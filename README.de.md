@@ -12,7 +12,7 @@
 
 Kurzkarte: Alle 1993 Anwendungen der offiziellen Liste „2000+ uses“, dazu weitere aus dem Web, jede mit eigener animierter Illustration. Einzelne Datei, offline, ohne Konto, ohne Tracking.
 
-Oberflächensprache: **alle 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (automatisch erkannt, im Kopfbereich umschaltbar). Die Texte der Anwendungen (2018 Einträge) gibt es auf Rumänisch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch und Deutsch; Ungarisch zeigt sie vorerst auf Englisch.
+Oberflächensprache: **alle 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (automatisch erkannt, im Kopfbereich umschaltbar). Die Texte der Anwendungen (2018 Einträge) gibt es in allen 8 Sprachen.
 
 ## Ausführliche Beschreibung
 

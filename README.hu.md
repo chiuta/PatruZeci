@@ -12,7 +12,7 @@
 
 Rövid kártya: a hivatalos „2000+ uses” lista mind az 1993 felhasználási módja, és további webes tippek, mindegyik saját animált illusztrációval. Egyetlen fájl, offline, fiók és követés nélkül.
 
-A felület nyelve: **mind a nyolc** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (automatikusan felismerve, a fejlécben váltható). A felhasználások szövegei románul és angolul léteznek; a többi hat nyelv egyelőre angolul mutatja őket.
+A felület nyelve: **mind a nyolc** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (automatikusan felismerve, a fejlécben váltható). A felhasználások szövegei (2018 bejegyzés) mind a 8 nyelven elérhetők.
 
 ## Részletes leírás
 

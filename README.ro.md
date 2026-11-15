@@ -12,7 +12,7 @@
 
 Cartea scurtă: toate cele 1993 de utilizări din lista oficială „2000+ uses”, plus altele de pe web, fiecare cu propria ilustrație animată. Fișier unic, offline, fără cont, fără urmărire.
 
-Limba interfeței: **toate cele 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (detectată automat, se schimbă din antet). Textele utilizărilor există în română și engleză; celelalte șase limbi le arată deocamdată în engleză.
+Limba interfeței: **toate cele 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (detectată automat, se schimbă din antet). Textele utilizărilor (2018 de intrări) sunt disponibile în toate cele 8 limbi.
 
 ## Descriere detaliată
 

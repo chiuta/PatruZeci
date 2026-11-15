@@ -12,7 +12,7 @@
 
 Scheda breve: tutti i 1993 usi della lista ufficiale «2000+ uses», più altri dal web, ciascuno con la propria illustrazione animata. File unico, offline, senza account, senza tracciamento.
 
-Lingua dell’interfaccia: **tutte e 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (rilevata automaticamente, si cambia dall’intestazione). I testi degli usi (2018 voci) esistono in rumeno, inglese, francese, italiano e spagnolo; le altre tre lingue per ora li mostrano in inglese.
+Lingua dell’interfaccia: **tutte e 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (rilevata automaticamente, si cambia dall’intestazione). I testi degli usi (2018 voci) esistono in tutte e 8 le lingue.
 
 ## Descrizione dettagliata
 

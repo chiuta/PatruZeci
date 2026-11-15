@@ -12,7 +12,7 @@
 
 Fiche courte : les 1993 usages de la liste officielle « 2000+ uses », plus d’autres trouvés sur le web, chacun avec sa propre illustration animée. Fichier unique, hors ligne, sans compte, sans pistage.
 
-Langue de l’interface : **les 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (détectée automatiquement, à changer dans l’en-tête). Les textes des usages (2018 entrées) existent en roumain, anglais, français, italien et espagnol ; les trois autres langues les affichent pour l’instant en anglais.
+Langue de l’interface : **les 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (détectée automatiquement, à changer dans l’en-tête). Les textes des usages (2018 entrées) existent dans les 8 langues.
 
 ## Description détaillée
 

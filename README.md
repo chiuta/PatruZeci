@@ -12,7 +12,7 @@
 
 Short card: All 1993 uses from the official “2000+ uses” list, plus extras from the web, each with its own animated illustration. Single file, offline, no account, no tracking.
 
-Interface language: **all 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (auto-detected, switch in the header). The texts of the uses exist in Romanian and English; the other six languages show them in English for now.
+Interface language: **all 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (auto-detected, switch in the header). The texts of the uses (2018 entries) are available in all 8 languages.
 
 ## Detailed description
 
