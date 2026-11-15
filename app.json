@@ -2,7 +2,7 @@
   "schema": 1,
   "slug": "patruzeci",
   "name": "PATRUZECI — WD-40 atlas",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "updated": "2026-11-15",
   "description": "Illustrated, animated, offline atlas of WD-40 uses (unofficial).",
   "egress": [],
@@ -14,8 +14,8 @@
     "patruzeci-fav",
     "patruzeci-lang"
   ],
-  "sizeBytes": 610923,
-  "sha256": "1db7ba1c96a5526103f22158f60a74d395fc046d3bfa040b2f1515c9a98546ed",
+  "sizeBytes": 747266,
+  "sha256": "e246fbcc2f4a2e457a62aaae48bf3cf0e6c0167360b8575929efc1dd90641e2b",
   "features": {
     "i18n": [
       "ro",

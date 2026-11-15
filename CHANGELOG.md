@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.4.0 — 2026-11-15
+
+- Italian: all 2018 list entries, the 147 guide entries, the product range, “what to avoid” and the web notes are now translated into Italian (AI-assisted, not reviewed by native speakers). Four languages remain (es, pt, de, hu).
+
 ## 3.3.0 — 2026-11-15
 
 - French: all 2018 list entries, the 147 guide entries, the product range, “what to avoid” and the web notes are now translated into French (AI-assisted, not reviewed by native speakers). The other five languages follow, one release each.

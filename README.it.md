@@ -12,7 +12,7 @@
 
 Scheda breve: tutti i 1993 usi della lista ufficiale «2000+ uses», più altri dal web, ciascuno con la propria illustrazione animata. File unico, offline, senza account, senza tracciamento.
 
-Lingua dell’interfaccia: **tutte e 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (rilevata automaticamente, si cambia dall’intestazione). I testi degli usi esistono in rumeno e inglese; le altre sei lingue per ora li mostrano in inglese.
+Lingua dell’interfaccia: **tutte e 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (rilevata automaticamente, si cambia dall’intestazione). I testi degli usi (2018 voci) esistono in rumeno, inglese, francese e italiano; le altre quattro lingue per ora li mostrano in inglese.
 
 ## Descrizione dettagliata
 
@@ -41,7 +41,7 @@ PATRUZECI è un’app web in un solo file, offline (`index.html`, senza server, 
 
 ## Limiti, con franchezza
 
-Le illustrazioni sono scene animate generiche abbinate con regole all’azione e all’oggetto di ciascun uso, non 2000 disegni unici; l’abbinamento automatico può essere approssimativo. La lista ufficiale proviene dagli utenti e **non è stata testata da WD-40 Company**; inoltre è molto ripetitiva. La traduzione in rumeno è stata fatta con l’aiuto dell’IA. L’interfaccia è disponibile in 8 lingue, ma i testi degli usi esistono solo in rumeno e inglese (le altre sei lingue li mostrano in inglese); le traduzioni dell’interfaccia in francese, italiano, spagnolo, portoghese, tedesco e ungherese sono state prodotte con l’aiuto di un’IA e non sono state riviste da madrelingua.
+Le illustrazioni sono scene animate generiche abbinate con regole all’azione e all’oggetto di ciascun uso, non 2000 disegni unici; l’abbinamento automatico può essere approssimativo. La lista ufficiale proviene dagli utenti e **non è stata testata da WD-40 Company**; inoltre è molto ripetitiva. La traduzione in rumeno è stata fatta con l’aiuto dell’IA. L’interfaccia è disponibile in 8 lingue, ma i testi degli usi esistono solo in rumeno, inglese, francese e italiano (le altre quattro lingue li mostrano in inglese); le traduzioni dell’interfaccia in francese, italiano, spagnolo, portoghese, tedesco e ungherese sono state prodotte con l’aiuto di un’IA e non sono state riviste da madrelingua.
 
 ## Sicurezza
 
