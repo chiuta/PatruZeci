@@ -12,7 +12,7 @@
 
 Kurzkarte: Alle 1993 Anwendungen der offiziellen Liste „2000+ uses“, dazu weitere aus dem Web, jede mit eigener animierter Illustration. Einzelne Datei, offline, ohne Konto, ohne Tracking.
 
-Oberflächensprache: **alle 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (automatisch erkannt, im Kopfbereich umschaltbar). Die Texte der Anwendungen gibt es auf Rumänisch und Englisch; die anderen sechs Sprachen zeigen sie vorerst auf Englisch.
+Oberflächensprache: **alle 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (automatisch erkannt, im Kopfbereich umschaltbar). Die Texte der Anwendungen (2018 Einträge) gibt es auf Rumänisch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch und Deutsch; Ungarisch zeigt sie vorerst auf Englisch.
 
 ## Ausführliche Beschreibung
 
@@ -41,7 +41,7 @@ PATRUZECI ist eine Web-App in einer einzigen Datei, offline (`index.html`, kein 
 
 ## Grenzen, ehrlich gesagt
 
-Die Illustrationen sind generische animierte Szenen, die per Regeln zu Handlung und Objekt jeder Anwendung passen, keine 2000 einzigartigen Zeichnungen; die automatische Zuordnung kann ungenau sein. Die offizielle Liste stammt von Nutzern und wurde **nicht von der WD-40 Company getestet**; sie ist zudem sehr repetitiv. Die rumänische Übersetzung entstand mit KI-Unterstützung. Die Oberfläche gibt es in 8 Sprachen, die Texte der Anwendungen jedoch nur auf Rumänisch und Englisch (die anderen sechs Sprachen zeigen sie auf Englisch); die Übersetzungen der Oberfläche ins Französische, Italienische, Spanische, Portugiesische, Deutsche und Ungarische entstanden mit KI-Unterstützung und wurden nicht von Muttersprachlern geprüft.
+Die Illustrationen sind generische animierte Szenen, die per Regeln zu Handlung und Objekt jeder Anwendung passen, keine 2000 einzigartigen Zeichnungen; die automatische Zuordnung kann ungenau sein. Die offizielle Liste stammt von Nutzern und wurde **nicht von der WD-40 Company getestet**; sie ist zudem sehr repetitiv. Die rumänische Übersetzung entstand mit KI-Unterstützung. Die Oberfläche gibt es in 8 Sprachen, die Texte der Anwendungen jedoch auf Rumänisch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch und Deutsch (Ungarisch zeigt sie auf Englisch); die Übersetzungen der Oberfläche ins Französische, Italienische, Spanische, Portugiesische, Deutsche und Ungarische entstanden mit KI-Unterstützung und wurden nicht von Muttersprachlern geprüft.
 
 ## Sicherheit
 
