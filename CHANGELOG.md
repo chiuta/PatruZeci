@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.6.0 — 2026-11-15
+
+- Portuguese: all 2018 list entries, the 147 guide entries, the product range, “what to avoid” and the web notes are now translated into Portuguese (AI-assisted, not reviewed by native speakers). Two languages remain (de, hu).
+
 ## 3.5.0 — 2026-11-15
 
 - Spanish: all 2018 list entries, the 147 guide entries, the product range, “what to avoid” and the web notes are now translated into Spanish (AI-assisted, not reviewed by native speakers). Three languages remain (pt, de, hu).
