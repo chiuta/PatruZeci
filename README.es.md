@@ -12,7 +12,7 @@
 
 Ficha corta: los 1993 usos de la lista oficial «2000+ uses», más otros de la web, cada uno con su propia ilustración animada. Un solo archivo, sin conexión, sin cuenta, sin rastreo.
 
-Idioma de la interfaz: **los 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (detectado automáticamente, se cambia en la cabecera). Los textos de los usos existen en rumano e inglés; los otros seis idiomas los muestran por ahora en inglés.
+Idioma de la interfaz: **los 8** — English, Română, Français, Italiano, Español, Português, Deutsch, Magyar (detectado automáticamente, se cambia en la cabecera). Los textos de los usos (2018 entradas) existen en rumano, inglés, francés, italiano y español; los otros tres idiomas los muestran por ahora en inglés.
 
 ## Descripción detallada
 
@@ -41,7 +41,7 @@ PATRUZECI es una aplicación web de un solo archivo, sin conexión (`index.html`
 
 ## Límites, con franqueza
 
-Las ilustraciones son escenas animadas genéricas asociadas por reglas a la acción y al objeto de cada uso, no 2000 dibujos únicos; la asociación automática puede ser aproximada. La lista oficial procede de los usuarios y **no ha sido probada por WD-40 Company**; además es muy repetitiva. La traducción al rumano se hizo con ayuda de IA. La interfaz está disponible en 8 idiomas, pero los textos de los usos solo existen en rumano e inglés (los otros seis idiomas los muestran en inglés); las traducciones de la interfaz al francés, italiano, español, portugués, alemán y húngaro se hicieron con ayuda de una IA y no las han revisado hablantes nativos.
+Las ilustraciones son escenas animadas genéricas asociadas por reglas a la acción y al objeto de cada uso, no 2000 dibujos únicos; la asociación automática puede ser aproximada. La lista oficial procede de los usuarios y **no ha sido probada por WD-40 Company**; además es muy repetitiva. La traducción al rumano se hizo con ayuda de IA. La interfaz está disponible en 8 idiomas, pero los textos de los usos existen en rumano, inglés, francés, italiano y español (los otros tres idiomas los muestran en inglés); las traducciones de la interfaz al francés, italiano, español, portugués, alemán y húngaro se hicieron con ayuda de una IA y no las han revisado hablantes nativos.
 
 ## Seguridad
 
