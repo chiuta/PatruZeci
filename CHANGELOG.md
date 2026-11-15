@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.2.1 — 2026-11-15
+
+- New: hyper-detailed fractal textures (fff-texturi 1.1.2) — the background and large surfaces (cards, panels, headers, buttons; tabs and dialogs that are hidden at load, once they open) get a locally generated material (WebGL2, no network, no images) that tiles seamlessly; the app keeps its own colours. Turn it off in the "Transparency" dialog or with `?notex=1`.
+
 ## 3.2.0 — 2026-11-14
 
 - New: the whole interface in 8 languages (English, Română, Français, Italiano, Español, Português, Deutsch, Magyar): tabs, filters, categories, sections, risk levels, safety notes, help texts, sources. Language is picked from the browser or from the selector in the header and remembered.

@@ -1,7 +1,7 @@
 """Concatenates src/ into a single self-contained index.html and writes app.json (run from anywhere)."""
 import pathlib, re, hashlib, base64, json
-VERSION = '3.2.0'
-UPDATED = '2026-11-14'
+VERSION = '3.2.1'
+UPDATED = '2026-11-15'
 root = pathlib.Path(__file__).resolve().parent.parent
 d = root / 'src'
 css = (d / 'style.css').read_text(encoding='utf-8')
