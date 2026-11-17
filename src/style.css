@@ -223,3 +223,4 @@ select.btn option{background:#16232e;color:#e6eef3}
 #motion .mi{display:none}
 @media(max-width:760px){#motion .mt{display:none}#motion .mi{display:inline}#motion{min-width:44px}}
 @media(max-width:420px){nav.tabs button{font-size:11px;padding:10px 1px}}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}

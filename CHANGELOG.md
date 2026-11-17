@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.8.1 — 2026-11-17
+
+- Older-browser compatibility (Chrome/Edge 55+, Firefox 52+, Safari 10.1+/iOS 10.3+): kit 1.8.0 brings the compatibility layer (fallbacks for APIs missing in old engines), and JavaScript syntax newer than ES2017 was replaced with equivalent forms where it existed; newer regular expressions and `import()` go through fallbacks. No functional changes intended. Verified with an ES2017 parser and in a simulated old engine, not on real devices.
+
 ## 3.8.0 — 2026-11-15
 
 - Hungarian: all 2018 list entries, the 147 guide entries, the product range, “what to avoid” and the web notes are now translated into Hungarian (AI-assisted, not reviewed by native speakers). All 8 languages now have full content; no English fallback remains.

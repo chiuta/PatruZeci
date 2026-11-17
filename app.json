@@ -1,22 +1,41 @@
 {
   "schema": 1,
   "slug": "patruzeci",
-  "name": "PATRUZECI — WD-40 atlas",
-  "version": "3.8.0",
-  "updated": "2026-11-15",
-  "description": "Illustrated, animated, offline atlas of WD-40 uses (unofficial).",
+  "name": "PATRUZECI — WD-40",
+  "version": "3.8.1",
+  "updated": "2026-11-17",
+  "description": "Offline, illustrated and animated atlas of WD-40 uses. Unofficial. RO EN FR IT ES PT DE HU.",
   "egress": [],
   "permissions": [
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "patruzeci-fav",
     "patruzeci-lang"
   ],
-  "sizeBytes": 1278054,
-  "sha256": "d8bb92708b69edef7c0381ab92cbc5d2fbd3df9a862f832cc25cb891f1888fb9",
+  "sizeBytes": 1458885,
+  "sha256": "a5396f9d7e60c2ed8362cecd3d128204b7808eaea9b5223d7d1c8a41e11442e0",
+  "csp": {
+    "present": true,
+    "directives": {
+      "default-src": "'none'",
+      "script-src": "sha256×6",
+      "style-src": "'unsafe-inline'",
+      "img-src": "'self' data:",
+      "worker-src": "'self'",
+      "connect-src": "'none'",
+      "base-uri": "'none'",
+      "form-action": "'none'",
+      "manifest-src": "'self'"
+    },
+    "scriptInline": "hash",
+    "connect": "'none'"
+  },
   "features": {
+    "export": false,
+    "import": false,
     "i18n": [
       "ro",
       "en",
@@ -24,12 +43,30 @@
       "it",
       "es",
       "pt",
-      "de",
-      "hu"
+      "hu",
+      "de"
     ],
     "pwa": {
       "manifest": true,
       "serviceWorker": true
-    }
-  }
+    },
+    "modules": [
+      "core",
+      "store",
+      "view",
+      "a11y",
+      "share"
+    ]
+  },
+  "kit": {
+    "version": "1.8.0",
+    "modules": [
+      "core",
+      "store",
+      "view",
+      "a11y",
+      "share"
+    ]
+  },
+  "selfSerializing": false
 }
