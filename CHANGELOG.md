@@ -2,6 +2,14 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.8.2 — 2026-11-18
+
+- Safety ratings of the full list: 141 entries that contradicted the app’s own “Avoid” rules, or the rating of their sibling entries, were raised (never lowered). 35 are now “not recommended” (112 → 147: brake drums and a lift’s brakes, cookware and food-preparation tools, dryers, burners and stoves, candle holders, hospital and orthopaedic equipment, aquariums, a live electrical panel, a steering wheel) and 106 “with care” (245 → 351: other brake parts, cooking and heating appliances, baby and playground gear, wiring and generators, screens and CD cases, pet gear, and floors, soles and grips that turn slippery). Each has a note: the existing warnings are reused and three short new ones (live electrics, slippery film, things children touch) are translated in all 8 languages.
+- Fixed: the English title of entry #1992 carried a 440-character legal paragraph pasted from the source page.
+- README ×8: the claim that the texts of the uses exist only in Romanian and English (or in a few languages) was out of date — all 8 languages have all 2018 entries since 3.8.0; the numbers now match the data (157 scene variants, 147 / 351 risk levels); the risk-rating limits are stated; the Develop section lists the kit sync and the tests.
+- New test `tests/data.test.mjs` (100 checks): counts, parity of the 8 languages (lengths, empty texts, Romanian letters outside `ro`, scraped residue, UI keys and placeholders), risk floor for the 141 entries, scenes, README numbers against the data, hostile input (corrupt favourites, markup in search).
+- Unverified: the new ratings are rules plus manual review, not tests by a safety professional; the other 1520 entries are not guaranteed safe. The translations of the new notes are AI-assisted and not reviewed by native speakers.
+
 ## 3.8.1 — 2026-11-17
 
 - Older-browser compatibility (Chrome/Edge 55+, Firefox 52+, Safari 10.1+/iOS 10.3+): kit 1.8.0 brings the compatibility layer (fallbacks for APIs missing in old engines), and JavaScript syntax newer than ES2017 was replaced with equivalent forms where it existed; newer regular expressions and `import()` go through fallbacks. No functional changes intended. Verified with an ES2017 parser and in a simulated old engine, not on real devices.

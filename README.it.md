@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 3.8.1 · **Ultimo aggiornamento:** 2026-11-17
+**Versione:** 3.8.2 · **Ultimo aggiornamento:** 2026-11-18
 
 **Stato:** stabile · **Offline:** completo (funziona da `file://`, senza rete)
 
@@ -31,9 +31,9 @@ PATRUZECI è un’app web in un solo file, offline (`index.html`, senza server, 
 
 - **Guida** — 147 schede scritte a mano in 14 categorie, ciascuna con consigli, livello di rischio (in genere sicuro / con cautela / sconsigliato) e cosa fa lo spray (lubrifica, sblocca, pulisce, protegge dalla ruggine, scaccia l’umidità).
 - **8 lingue** — tutta l’interfaccia (schede, filtri, categorie, note di sicurezza, testi di aiuto) in English, Română, Français, Italiano, Español, Português, Deutsch e Magyar, scelta in base alla lingua del browser o dal selettore nell’intestazione.
-- **Lista completa** — tutti i 1993 usi della lista ufficiale «2000+ uses», tradotti in rumeno, con ricerca e filtri per le sei sezioni ufficiali e per funzione, con scorrimento infinito. In più una sezione 🌐 con 25 usi aggiuntivi, miti e avvertenze da articoli web recenti.
-- **Animazioni** — 131 varianti di scena (cardine, bullone, catena, macchia, ruggine, cerniera lampo, ruota, puleggia…) scelte automaticamente per ogni uso. Si fermano fuori schermo e con «Animazioni: spente» o quando il sistema chiede meno movimento.
-- **Prima la sicurezza** — 112 usi sono segnati «sconsigliato» (freni, cinture di sicurezza, contatto con alimenti, pelle e animali, dispositivi medici, dischi in vinile…) e 245 «con cautela», ciascuno con una spiegazione.
+- **Lista completa** — tutti i 1993 usi della lista ufficiale «2000+ uses», nelle 8 lingue, con ricerca e filtri per le sei sezioni ufficiali e per funzione, con scorrimento infinito. In più una sezione 🌐 con 25 usi aggiuntivi, miti e avvertenze da articoli web recenti.
+- **Animazioni** — 157 varianti di scena (cardine, bullone, catena, macchia, ruggine, cerniera lampo, ruota, puleggia…): scelte a mano per le schede della guida e abbinate con regole per la lista completa. Si fermano fuori schermo e con «Animazioni: spente» o quando il sistema chiede meno movimento.
+- **Prima la sicurezza** — 147 usi sono segnati «sconsigliato» (freni, cinture di sicurezza, contatto con alimenti, apparecchi di cottura e riscaldamento, pelle e animali, dispositivi medici, dischi in vinile…) e 351 «con cautela», ciascuno con una spiegazione.
 - **Adattivo** — telefono (barra delle schede in basso, dettagli a pannello scorrevole, swipe), tablet, desktop (dettagli su due colonne, tasti freccia), rispetto delle aree sicure dello schermo.
 - **Schede** — Come funziona, Gamma di prodotti WD-40, Da evitare, Fonti.
 - **Privato** — i preferiti restano nella memoria locale del browser; nulla viene inviato altrove.
@@ -41,7 +41,7 @@ PATRUZECI è un’app web in un solo file, offline (`index.html`, senza server, 
 
 ## Limiti, con franchezza
 
-Le illustrazioni sono scene animate generiche abbinate con regole all’azione e all’oggetto di ciascun uso, non 2000 disegni unici; l’abbinamento automatico può essere approssimativo. La lista ufficiale proviene dagli utenti e **non è stata testata da WD-40 Company**; inoltre è molto ripetitiva. La traduzione in rumeno è stata fatta con l’aiuto dell’IA. L’interfaccia è disponibile in 8 lingue, ma i testi degli usi esistono solo in rumeno, inglese, francese, italiano e spagnolo (le altre tre lingue li mostrano in inglese); le traduzioni dell’interfaccia in francese, italiano, spagnolo, portoghese, tedesco e ungherese sono state prodotte con l’aiuto di un’IA e non sono state riviste da madrelingua.
+Le illustrazioni sono scene animate generiche abbinate con regole all’azione e all’oggetto di ciascun uso, non 2000 disegni unici; l’abbinamento automatico può essere approssimativo. La lista ufficiale proviene dagli utenti e **non è stata testata da WD-40 Company**; inoltre è molto ripetitiva. I livelli di rischio seguono le regole della scheda «Da evitare» e le avvertenze del produttore e sono stati assegnati con regole e verifica manuale, non con prove: «In genere sicuro» non è una garanzia, quindi leggi l’etichetta. La traduzione in rumeno è stata fatta con l’aiuto dell’IA. L’interfaccia e i testi di tutte le 2018 voci esistono in tutte e 8 le lingue; le traduzioni in francese, italiano, spagnolo, portoghese, tedesco e ungherese sono state prodotte con l’aiuto di un’IA e non sono state riviste da madrelingua.
 
 ## Sicurezza
 
@@ -56,7 +56,9 @@ Apri `index.html` in un browser moderno (funziona da `file://`) oppure pubblical
 `index.html` è generato da `src/` (scene, dati, interfaccia, stili). Dopo le modifiche:
 
 ```bash
-python3 tools/build.py   # src/ → index.html
+python3 tools/build.py                                    # src/ → index.html
+node <hub>/fff-kit/build.mjs release . --bump none --lax  # kit sync (hub: chiuta.github.io)
+node tests/app.test.mjs; node tests/data.test.mjs         # tests (Playwright)
 ```
 
 ## Fonti e crediti

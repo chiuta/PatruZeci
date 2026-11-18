@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 3.8.1 · **Zuletzt aktualisiert:** 2026-11-17
+**Version:** 3.8.2 · **Zuletzt aktualisiert:** 2026-11-18
 
 **Status:** stabil · **Offline:** vollständig (läuft von `file://`, ohne Netzwerk)
 
@@ -31,9 +31,9 @@ PATRUZECI ist eine Web-App in einer einzigen Datei, offline (`index.html`, kein 
 
 - **Ratgeber** — 147 handgeschriebene Karten in 14 Kategorien, jeweils mit Tipps, Risikostufe (meist unbedenklich / Vorsicht / nicht empfohlen) und der Wirkung des Sprays (schmiert, löst, reinigt, schützt vor Rost, verdrängt Feuchtigkeit).
 - **8 Sprachen** — die gesamte Oberfläche (Tabs, Filter, Kategorien, Sicherheitshinweise, Hilfetexte) in English, Română, Français, Italiano, Español, Português, Deutsch und Magyar, gewählt nach Browsersprache oder über die Auswahl im Kopfbereich.
-- **Vollständige Liste** — alle 1993 Anwendungen der offiziellen Liste „2000+ uses“, ins Rumänische übersetzt, mit Suche und Filtern nach den sechs offiziellen Abschnitten und nach Funktion, mit endlosem Scrollen. Dazu ein Abschnitt 🌐 mit 25 zusätzlichen Anwendungen, Mythen und Warnungen aus aktuellen Webartikeln.
-- **Animationen** — 131 Szenenvarianten (Scharnier, Bolzen, Kette, Fleck, Rost, Reißverschluss, Rad, Rolle …), automatisch für jede Anwendung gewählt. Sie pausieren außerhalb des Bildschirms und stoppen mit „Animationen: aus“ oder wenn das System weniger Bewegung wünscht.
-- **Sicherheit zuerst** — 112 Anwendungen sind als „nicht empfohlen“ markiert (Bremsen, Sicherheitsgurte, Lebensmittelkontakt, Haut und Tiere, Medizinprodukte, Schallplatten …) und 245 mit „Vorsicht“, jeweils mit Erklärung.
+- **Vollständige Liste** — alle 1993 Anwendungen der offiziellen Liste „2000+ uses“, in allen 8 Sprachen, mit Suche und Filtern nach den sechs offiziellen Abschnitten und nach Funktion, mit endlosem Scrollen. Dazu ein Abschnitt 🌐 mit 25 zusätzlichen Anwendungen, Mythen und Warnungen aus aktuellen Webartikeln.
+- **Animationen** — 157 Szenenvarianten (Scharnier, Bolzen, Kette, Fleck, Rost, Reißverschluss, Rad, Rolle …): für die Karten des Ratgebers von Hand gewählt, für die vollständige Liste per Regeln zugeordnet. Sie pausieren außerhalb des Bildschirms und stoppen mit „Animationen: aus“ oder wenn das System weniger Bewegung wünscht.
+- **Sicherheit zuerst** — 147 Anwendungen sind als „nicht empfohlen“ markiert (Bremsen, Sicherheitsgurte, Lebensmittelkontakt, Koch- und Heizgeräte, Haut und Tiere, Medizinprodukte, Schallplatten …) und 351 mit „Vorsicht“, jeweils mit Erklärung.
 - **Responsiv** — Smartphone (untere Tab-Leiste, Details als Bottom Sheet, Wischen), Tablet, Desktop (zweispaltige Details, Pfeiltasten), mit Rücksicht auf sichere Bildschirmbereiche.
 - **Tabs** — Funktionsweise, WD-40-Produktpalette, Zu vermeiden, Quellen.
 - **Privat** — Favoriten bleiben im lokalen Speicher des Browsers; nichts wird irgendwohin gesendet.
@@ -41,7 +41,7 @@ PATRUZECI ist eine Web-App in einer einzigen Datei, offline (`index.html`, kein 
 
 ## Grenzen, ehrlich gesagt
 
-Die Illustrationen sind generische animierte Szenen, die per Regeln zu Handlung und Objekt jeder Anwendung passen, keine 2000 einzigartigen Zeichnungen; die automatische Zuordnung kann ungenau sein. Die offizielle Liste stammt von Nutzern und wurde **nicht von der WD-40 Company getestet**; sie ist zudem sehr repetitiv. Die rumänische Übersetzung entstand mit KI-Unterstützung. Die Oberfläche gibt es in 8 Sprachen, die Texte der Anwendungen jedoch auf Rumänisch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch und Deutsch (Ungarisch zeigt sie auf Englisch); die Übersetzungen der Oberfläche ins Französische, Italienische, Spanische, Portugiesische, Deutsche und Ungarische entstanden mit KI-Unterstützung und wurden nicht von Muttersprachlern geprüft.
+Die Illustrationen sind generische animierte Szenen, die per Regeln zu Handlung und Objekt jeder Anwendung passen, keine 2000 einzigartigen Zeichnungen; die automatische Zuordnung kann ungenau sein. Die offizielle Liste stammt von Nutzern und wurde **nicht von der WD-40 Company getestet**; sie ist zudem sehr repetitiv. Die Risikostufen folgen den Regeln des Tabs „Vermeiden“ und den Herstellerwarnungen und wurden per Regeln und manueller Prüfung vergeben, nicht durch Tests: „In der Regel sicher“ ist keine Garantie, lesen Sie also das Etikett. Die rumänische Übersetzung entstand mit KI-Unterstützung. Die Oberfläche und die Texte aller 2018 Einträge gibt es in allen 8 Sprachen; die Übersetzungen ins Französische, Italienische, Spanische, Portugiesische, Deutsche und Ungarische entstanden mit KI-Unterstützung und wurden nicht von Muttersprachlern geprüft.
 
 ## Sicherheit
 
@@ -56,7 +56,9 @@ WD-40 ist ein entzündliches Aerosol: von Flammen, Funken und heißen Flächen f
 `index.html` wird aus `src/` erzeugt (Szenen, Daten, Oberfläche, Stile). Nach Änderungen:
 
 ```bash
-python3 tools/build.py   # src/ → index.html
+python3 tools/build.py                                    # src/ → index.html
+node <hub>/fff-kit/build.mjs release . --bump none --lax  # kit sync (hub: chiuta.github.io)
+node tests/app.test.mjs; node tests/data.test.mjs         # tests (Playwright)
 ```
 
 ## Quellen und Danksagung

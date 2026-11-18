@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 3.8.1 · **Utolsó frissítés:** 2026-11-17
+**Verzió:** 3.8.2 · **Utolsó frissítés:** 2026-11-18
 
 **Állapot:** stabil · **Offline:** teljes (működik `file://`-ról, hálózat nélkül)
 
@@ -31,9 +31,9 @@ A PATRUZECI egyetlen fájlból álló, offline webalkalmazás (`index.html`, sze
 
 - **Útmutató** — 147 kézzel írt kártya 14 kategóriában, mindegyik tanáccsal, kockázati szinttel (általában biztonságos / óvatosan / nem ajánlott) és azzal, mit tesz a spray (kenik, kioldja, tisztít, véd a rozsda ellen, kiszorítja a nedvességet).
 - **8 nyelv** — a teljes felület (fülek, szűrők, kategóriák, biztonsági megjegyzések, súgószövegek) English, Română, Français, Italiano, Español, Português, Deutsch és Magyar nyelven, a böngésző nyelve vagy a fejléc választója szerint.
-- **Teljes lista** — a hivatalos „2000+ uses” lista mind az 1993 felhasználása, románra fordítva, kereséssel és szűréssel a hat hivatalos szakasz és a funkció szerint, végtelen görgetéssel. Plusz egy 🌐 szakasz 25 további felhasználással, mítosszal és figyelmeztetéssel friss webes cikkekből.
-- **Animációk** — 131 jelenetváltozat (zsanér, csavar, lánc, folt, rozsda, cipzár, kerék, csiga…), mindegyik felhasználáshoz automatikusan választva. Képernyőn kívül szünetelnek, és az „Animációk: kikapcsolva” beállításra vagy a rendszer csökkentett mozgás kérésére leállnak.
-- **Először a biztonság** — 112 felhasználás „nem ajánlott” jelölést kapott (fékek, biztonsági övek, élelmiszerrel érintkezés, bőr és állatok, orvosi eszközök, bakelitlemezek…), 245 pedig „óvatosan”, mindegyik magyarázattal.
+- **Teljes lista** — a hivatalos „2000+ uses” lista mind az 1993 felhasználása, mind a 8 nyelven, kereséssel és szűréssel a hat hivatalos szakasz és a funkció szerint, végtelen görgetéssel. Plusz egy 🌐 szakasz 25 további felhasználással, mítosszal és figyelmeztetéssel friss webes cikkekből.
+- **Animációk** — 157 jelenetváltozat (zsanér, csavar, lánc, folt, rozsda, cipzár, kerék, csiga…): az útmutató kártyáihoz kézzel választva, a teljes listához szabályokkal párosítva. Képernyőn kívül szünetelnek, és az „Animációk: kikapcsolva” beállításra vagy a rendszer csökkentett mozgás kérésére leállnak.
+- **Először a biztonság** — 147 felhasználás „nem ajánlott” jelölést kapott (fékek, biztonsági övek, élelmiszerrel érintkezés, főző- és fűtőkészülékek, bőr és állatok, orvosi eszközök, bakelitlemezek…), 351 pedig „óvatosan”, mindegyik magyarázattal.
 - **Reszponzív** — telefon (alsó fülsáv, alsó panel, húzás), táblagép, asztali gép (kétoszlopos részletek, nyílbillentyűk), a képernyő biztonságos területeit tiszteletben tartva.
 - **Fülek** — Hogyan működik, A WD-40 termékcsalád, Kerülendő, Források.
 - **Privát** — a kedvencek a böngésző helyi tárolójában maradnak; semmi nem kerül sehová elküldésre.
@@ -41,7 +41,7 @@ A PATRUZECI egyetlen fájlból álló, offline webalkalmazás (`index.html`, sze
 
 ## Korlátok, őszintén
 
-Az illusztrációk általános animált jelenetek, amelyeket szabályok rendelnek az egyes felhasználások műveletéhez és tárgyához; nem 2000 egyedi rajz, és az automatikus párosítás lehet pontatlan. A hivatalos lista felhasználóktól származik, és **a WD-40 Company nem tesztelte**; ráadásul sok az ismétlés. A román fordítás MI segítségével készült. A felület 8 nyelven érhető el, de a felhasználások szövegei csak románul és angolul léteznek (a többi hat nyelv angolul mutatja őket); a felület francia, olasz, spanyol, portugál, német és magyar fordítása MI segítségével készült, és anyanyelvi beszélők nem ellenőrizték.
+Az illusztrációk általános animált jelenetek, amelyeket szabályok rendelnek az egyes felhasználások műveletéhez és tárgyához; nem 2000 egyedi rajz, és az automatikus párosítás lehet pontatlan. A hivatalos lista felhasználóktól származik, és **a WD-40 Company nem tesztelte**; ráadásul sok az ismétlés. A kockázati szintek az „Kerülendő” fül szabályait és a gyártó figyelmeztetéseit követik, szabályokkal és kézi ellenőrzéssel lettek megadva, nem vizsgálatokkal: az „Általában biztonságos” nem garancia, ezért olvasd el a címkét. A román fordítás MI segítségével készült. A felület és mind a 2018 bejegyzés szövege mind a 8 nyelven elérhető; a francia, olasz, spanyol, portugál, német és magyar fordítás MI segítségével készült, és anyanyelvi beszélők nem ellenőrizték.
 
 ## Biztonság
 
@@ -56,7 +56,9 @@ Nyisd meg az `index.html` fájlt bármely modern böngészőben (működik `file
 Az `index.html` a `src/` mappából generálódik (jelenetek, adatok, felület, stílusok). Szerkesztés után:
 
 ```bash
-python3 tools/build.py   # src/ → index.html
+python3 tools/build.py                                    # src/ → index.html
+node <hub>/fff-kit/build.mjs release . --bump none --lax  # kit sync (hub: chiuta.github.io)
+node tests/app.test.mjs; node tests/data.test.mjs         # tests (Playwright)
 ```
 
 ## Források és köszönet

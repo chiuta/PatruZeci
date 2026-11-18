@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 3.8.1 · **Última actualización:** 2026-11-17
+**Versión:** 3.8.2 · **Última actualización:** 2026-11-18
 
 **Estado:** estable · **Sin conexión:** completo (funciona desde `file://`, sin red)
 
@@ -31,9 +31,9 @@ PATRUZECI es una aplicación web de un solo archivo, sin conexión (`index.html`
 
 - **Guía** — 147 fichas escritas a mano en 14 categorías, cada una con consejos, nivel de riesgo (en general seguro / con precaución / no recomendado) y lo que hace el spray (lubrica, afloja, limpia, protege del óxido, desplaza la humedad).
 - **8 idiomas** — toda la interfaz (pestañas, filtros, categorías, notas de seguridad, textos de ayuda) en English, Română, Français, Italiano, Español, Português, Deutsch y Magyar, elegida según el idioma del navegador o el selector de la cabecera.
-- **Lista completa** — los 1993 usos de la lista oficial «2000+ uses», traducidos al rumano, con búsqueda y filtros por las seis secciones oficiales y por función, con desplazamiento infinito. Además, una sección 🌐 con 25 usos adicionales, mitos y advertencias de artículos web recientes.
-- **Animaciones** — 131 variantes de escena (bisagra, tornillo, cadena, mancha, óxido, cremallera, rueda, polea…) elegidas automáticamente para cada uso. Se pausan fuera de pantalla y se detienen con «Animaciones: apagadas» o cuando el sistema pide menos movimiento.
-- **La seguridad primero** — 112 usos están marcados «no recomendado» (frenos, cinturones de seguridad, contacto con alimentos, piel y animales, dispositivos médicos, discos de vinilo…) y 245 «con precaución», cada uno con su explicación.
+- **Lista completa** — los 1993 usos de la lista oficial «2000+ uses», en los 8 idiomas, con búsqueda y filtros por las seis secciones oficiales y por función, con desplazamiento infinito. Además, una sección 🌐 con 25 usos adicionales, mitos y advertencias de artículos web recientes.
+- **Animaciones** — 157 variantes de escena (bisagra, tornillo, cadena, mancha, óxido, cremallera, rueda, polea…): elegidas a mano para las tarjetas de la guía y asociadas por reglas para la lista completa. Se pausan fuera de pantalla y se detienen con «Animaciones: apagadas» o cuando el sistema pide menos movimiento.
+- **La seguridad primero** — 147 usos están marcados «no recomendado» (frenos, cinturones de seguridad, contacto con alimentos, aparatos de cocción y calefacción, piel y animales, dispositivos médicos, discos de vinilo…) y 351 «con precaución», cada uno con su explicación.
 - **Adaptable** — teléfono (barra de pestañas inferior, detalles en panel deslizable, deslizamiento), tableta, escritorio (detalles en dos columnas, teclas de flecha), respetando las zonas seguras de la pantalla.
 - **Pestañas** — Cómo funciona, Gama de productos WD-40, Qué evitar, Fuentes.
 - **Privada** — los favoritos se guardan en el almacenamiento local del navegador; nada se envía a ninguna parte.
@@ -41,7 +41,7 @@ PATRUZECI es una aplicación web de un solo archivo, sin conexión (`index.html`
 
 ## Límites, con franqueza
 
-Las ilustraciones son escenas animadas genéricas asociadas por reglas a la acción y al objeto de cada uso, no 2000 dibujos únicos; la asociación automática puede ser aproximada. La lista oficial procede de los usuarios y **no ha sido probada por WD-40 Company**; además es muy repetitiva. La traducción al rumano se hizo con ayuda de IA. La interfaz está disponible en 8 idiomas, pero los textos de los usos existen en rumano, inglés, francés, italiano y español (los otros tres idiomas los muestran en inglés); las traducciones de la interfaz al francés, italiano, español, portugués, alemán y húngaro se hicieron con ayuda de una IA y no las han revisado hablantes nativos.
+Las ilustraciones son escenas animadas genéricas asociadas por reglas a la acción y al objeto de cada uso, no 2000 dibujos únicos; la asociación automática puede ser aproximada. La lista oficial procede de los usuarios y **no ha sido probada por WD-40 Company**; además es muy repetitiva. Los niveles de riesgo siguen las reglas de la pestaña «Evitar» y las advertencias del fabricante, y se asignaron con reglas y revisión manual, no con ensayos: «Generalmente seguro» no es una garantía, así que lee la etiqueta. La traducción al rumano se hizo con ayuda de IA. La interfaz y los textos de las 2018 entradas existen en los 8 idiomas; las traducciones al francés, italiano, español, portugués, alemán y húngaro se hicieron con ayuda de una IA y no las han revisado hablantes nativos.
 
 ## Seguridad
 
@@ -56,7 +56,9 @@ Abra `index.html` en cualquier navegador moderno (funciona desde `file://`) o pu
 `index.html` se genera a partir de `src/` (escenas, datos, interfaz, estilos). Tras editar:
 
 ```bash
-python3 tools/build.py   # src/ → index.html
+python3 tools/build.py                                    # src/ → index.html
+node <hub>/fff-kit/build.mjs release . --bump none --lax  # kit sync (hub: chiuta.github.io)
+node tests/app.test.mjs; node tests/data.test.mjs         # tests (Playwright)
 ```
 
 ## Fuentes y créditos

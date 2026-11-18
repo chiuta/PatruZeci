@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 3.8.1 · **Ultima actualizare:** 2026-11-17
+**Versiune:** 3.8.2 · **Ultima actualizare:** 2026-11-18
 
 **Stare:** stabil · **Offline:** complet (funcționează din `file://`, nu cere internet)
 
@@ -31,9 +31,9 @@ PATRUZECI este o aplicație web dintr-un singur fișier, offline (`index.html`, 
 
 - **Ghid** — 147 de fișe scrise de mână, în 14 categorii, fiecare cu sfaturi, nivel de risc (în general sigur / cu atenție / nerecomandat) și ce face spray-ul (lubrifiază, desprinde, curăță, protejează de rugină, alungă umezeala).
 - **8 limbi** — toată interfața (file, filtre, categorii, note de siguranță, texte de ajutor) în English, Română, Français, Italiano, Español, Português, Deutsch și Magyar, aleasă după limba browserului sau din selectorul din antet.
-- **Lista completă** — toate cele 1993 de utilizări din lista oficială „2000+ uses”, traduse în română, cu căutare și filtre pe cele șase secțiuni oficiale și pe funcție, cu derulare infinită. Plus o secțiune 🌐 cu 25 de utilizări suplimentare, mituri și avertismente din articole web recente.
-- **Animații** — 131 de variante de scenă (balama, șurub, lanț, pată, rugină, fermoar, roată, scripete…) alese automat pentru fiecare utilizare. Se opresc când nu sunt pe ecran și cu „Animații: oprite” sau când sistemul cere mișcare redusă.
-- **Siguranța înainte de toate** — 112 utilizări sunt marcate „nerecomandat” (frâne, centuri de siguranță, contact cu alimentele, piele și animale, dispozitive medicale, discuri de vinil…) și 245 „cu atenție”, fiecare cu explicație.
+- **Lista completă** — toate cele 1993 de utilizări din lista oficială „2000+ uses”, în toate cele 8 limbi, cu căutare și filtre pe cele șase secțiuni oficiale și pe funcție, cu derulare infinită. Plus o secțiune 🌐 cu 25 de utilizări suplimentare, mituri și avertismente din articole web recente.
+- **Animații** — 157 de variante de scenă (balama, șurub, lanț, pată, rugină, fermoar, roată, scripete…): alese manual pentru cardurile din ghid și potrivite prin reguli pentru lista completă. Se opresc când nu sunt pe ecran și cu „Animații: oprite” sau când sistemul cere mișcare redusă.
+- **Siguranța înainte de toate** — 147 de utilizări sunt marcate „nerecomandat” (frâne, centuri de siguranță, contact cu alimentele, aparate de gătit și de încălzit, piele și animale, dispozitive medicale, discuri de vinil…) și 351 „cu atenție”, fiecare cu explicație.
 - **Adaptabilă** — telefon (bară de file jos, detalii ca panou glisant, glisare), tabletă, desktop (detalii pe două coloane, săgeți de la tastatură), cu respectarea zonelor de siguranță ale ecranului.
 - **File** — Cum funcționează, Gama de produse WD-40, De evitat, Surse.
 - **Privată** — favoritele rămân în stocarea locală a browserului; nimic nu este trimis nicăieri.
@@ -41,7 +41,7 @@ PATRUZECI este o aplicație web dintr-un singur fișier, offline (`index.html`, 
 
 ## Limite, spuse deschis
 
-Ilustrațiile sunt scene animate generice, potrivite prin reguli cu acțiunea și obiectul fiecărei utilizări, nu 2000 de desene unice; potrivirea automată poate fi aproximativă. Lista oficială provine de la utilizatori și **nu a fost testată de WD-40 Company**; este, de asemenea, foarte repetitivă. Traducerea în română a fost făcută cu ajutorul IA. Interfața există în 8 limbi, dar textele utilizărilor există doar în română și engleză (în celelalte șase limbi se arată în engleză); traducerile interfeței în franceză, italiană, spaniolă, portugheză, germană și maghiară au fost făcute cu ajutor AI și nu au fost verificate de vorbitori nativi.
+Ilustrațiile sunt scene animate generice, potrivite prin reguli cu acțiunea și obiectul fiecărei utilizări, nu 2000 de desene unice; potrivirea automată poate fi aproximativă. Lista oficială provine de la utilizatori și **nu a fost testată de WD-40 Company**; este, de asemenea, foarte repetitivă. Nivelurile de risc urmează regulile din fila „De evitat” și avertismentele producătorului și au fost atribuite prin reguli și verificare manuală, nu prin teste: „În general sigur” nu este o garanție, așa că citește eticheta. Traducerea în română a fost făcută cu ajutorul IA. Interfața și textele tuturor celor 2018 intrări există în toate cele 8 limbi; traducerile în franceză, italiană, spaniolă, portugheză, germană și maghiară au fost făcute cu ajutor AI și nu au fost verificate de vorbitori nativi.
 
 ## Siguranță
 
@@ -56,7 +56,9 @@ Deschide `index.html` în orice browser modern (funcționează din `file://`) sa
 `index.html` este generat din `src/` (scene, date, interfață, stiluri). După modificări:
 
 ```bash
-python3 tools/build.py   # src/ → index.html
+python3 tools/build.py                                    # src/ → index.html
+node <hub>/fff-kit/build.mjs release . --bump none --lax  # kit sync (hub: chiuta.github.io)
+node tests/app.test.mjs; node tests/data.test.mjs         # tests (Playwright)
 ```
 
 ## Surse și credite

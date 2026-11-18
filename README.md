@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 3.8.1 · **Last updated:** 2026-11-17
+**Version:** 3.8.2 · **Last updated:** 2026-11-18
 
 **Status:** stable · **Offline:** complete (works from `file://`, no network needed)
 
@@ -31,9 +31,9 @@ PATRUZECI is a single-file, offline web app (`index.html`, no server, no account
 
 - **Guide** — 147 hand-written cards in 14 categories, each with advice, a risk level (generally safe / use caution / not recommended) and what the spray does (lubricates, loosens, cleans, protects from rust, displaces moisture).
 - **8 languages** — the whole interface (tabs, filters, categories, safety notes, help texts) in English, Română, Français, Italiano, Español, Português, Deutsch and Magyar, picked from the browser language or the selector in the header.
-- **Full list** — all 1993 uses from the official “2000+ uses” list, translated into Romanian, searchable and filterable by the six official sections and by function, with infinite scroll. Plus a 🌐 section with 25 extra uses, myths and warnings from recent web articles.
-- **Animations** — 131 scene variants (hinge, bolt, chain, stain, rust, zipper, wheel, pulley…) chosen automatically for each use. They pause when off-screen and stop with “Animations: off” or when the system asks for reduced motion.
-- **Safety first** — 112 uses are marked “not recommended” (brakes, seat belts, food contact, skin and animals, medical devices, vinyl records…) and 245 “use caution”, each with an explanation.
+- **Full list** — all 1993 uses from the official “2000+ uses” list, in all 8 languages, searchable and filterable by the six official sections and by function, with infinite scroll. Plus a 🌐 section with 25 extra uses, myths and warnings from recent web articles.
+- **Animations** — 157 scene variants (hinge, bolt, chain, stain, rust, zipper, wheel, pulley…): set by hand for the guide cards and matched by rules for the full list. They pause when off-screen and stop with “Animations: off” or when the system asks for reduced motion.
+- **Safety first** — 147 uses are marked “not recommended” (brakes, seat belts, food contact, cooking and heating appliances, skin and animals, medical devices, vinyl records…) and 351 “use caution”, each with an explanation.
 - **Responsive** — phone (bottom tab bar, bottom-sheet details, swipe), tablet, desktop (two-column details, arrow keys), safe-area aware.
 - **Tabs** — How it works, Range of WD-40 products, What to avoid, Sources.
 - **Private** — favourites are kept in the browser’s local storage; nothing is sent anywhere.
@@ -41,7 +41,7 @@ PATRUZECI is a single-file, offline web app (`index.html`, no server, no account
 
 ## Honest limits
 
-The illustrations are generic animated scenes matched by rules to the action and the object of each use, not 2000 unique drawings; the automatic matching can be approximate. The official list is user-submitted and has **not been tested by WD-40 Company**; it is also very repetitive. The Romanian translation was produced with AI assistance. The interface is available in 8 languages, but the texts of the uses exist only in Romanian and English (the other six languages show them in English); the interface translations into French, Italian, Spanish, Portuguese, German and Hungarian were produced with AI assistance and have not been reviewed by native speakers.
+The illustrations are generic animated scenes matched by rules to the action and the object of each use, not 2000 unique drawings; the automatic matching can be approximate. The official list is user-submitted and has **not been tested by WD-40 Company**; it is also very repetitive. The risk levels follow the rules of the “Avoid” tab and the manufacturer’s warnings and were assigned by rules and manual review, not by tests: “Generally safe” is not a guarantee, so read the label. The Romanian translation was produced with AI assistance. The interface and the texts of all 2018 entries are available in all 8 languages; the translations into French, Italian, Spanish, Portuguese, German and Hungarian were produced with AI assistance and have not been reviewed by native speakers.
 
 ## Safety
 
@@ -56,7 +56,9 @@ Open `index.html` in any modern browser (it works from `file://`), or publish it
 `index.html` is generated from `src/` (scenes, data, UI, styles). After editing:
 
 ```bash
-python3 tools/build.py   # src/ → index.html
+python3 tools/build.py                                    # src/ → index.html
+node <hub>/fff-kit/build.mjs release . --bump none --lax  # kit sync (hub: chiuta.github.io)
+node tests/app.test.mjs; node tests/data.test.mjs         # tests (Playwright)
 ```
 
 ## Sources and credits
