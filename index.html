@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ro" data-fff-hash="5ef2f1c2eaa95634c13f3d8deb00f95a932daf026996b7c4eb34e6fee8827750"><head><meta charset="utf-8">
+<html lang="ro" data-fff-hash="2625088a61f55da050dc1cc0ed702d61dae108f7112a00ad00c71a5bfad7cd62"><head><meta charset="utf-8">
 <!--fff:kit:start v=1 modules=core,store,view,a11y,share-->
 <meta name="fff-app" content="patruzeci">
 <meta name="fff-modules" content="core,store,view,a11y,share">
@@ -207,7 +207,7 @@ html.fff-no-flexgap .fff-a11y-rw{margin:8px -8px 0 0}
 @media (prefers-reduced-motion:reduce){.fff-share,.fff-share-btn{transition:none}}
 @media print{.fff-share{display:none!important}}
 html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margin-top:6px}</style>
-<script id="fff-compat">/* fff-compat 1.8.0 — ES5, rulează înaintea kitului */
+<script id="fff-compat">/* fff-compat 1.8.1 — ES5, rulează înaintea kitului */
 /* fff-kit · compat — strat de compatibilitate cu browsere mai vechi.
  * ES5 pur (fără let/const/săgeți/șabloane, fără sintaxă nouă): rulează ca script separat, ÎNAINTEA restului kitului, ca să poată
  * semnala problema și în browsere care nu pot rula kitul. Fără rețea, fără eval/new Function, fără stiluri inline (doar CSSOM).
@@ -899,7 +899,7 @@ html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margi
 })(window, document);
 </script>
 <script type="module" id="fff-imp">window.__fffImp=function(u){return import(u)};</script>
-<script id="fff-kit">/* fff-kit 1.8.0 */
+<script id="fff-kit">/* fff-kit 1.8.1 */
 /* ---- fff-kit/core ---- */
 /* fff-kit · core · v1.2.0 — fără rețea, fără dependențe. Definește window.FFF. */
 (function () {
@@ -955,7 +955,51 @@ html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margi
       }
     }
   } catch (e3) {}
-  var KIT_VERSION = '1.8.0';
+  /* ---------- stocare indisponibilă → stocare în memorie (1.8.1) ----------
+   * Cu „blochează toate cookie-urile / datele site-urilor”, într-un WebView fără DOM storage sau într-un iframe fără allow-same-origin,
+   * `window.localStorage` aruncă SecurityError (sau lipsește), iar o aplicație care îl folosește direct se oprea la pornire (pagină goală).
+   * Punem în loc o stocare doar în memorie (dispare la închiderea paginii), cu aceeași interfață — inclusiv `localStorage.cheie = valoare`,
+   * `in`, `delete`, `Object.keys` când există Proxy. Nu atinge o stocare care funcționează. `FFF.storageVolatile` devine true.
+   * Pentru `localStorage`, modulele kitului (FFF.store, observatorul de chei, copia de siguranță) lucrează pe aceeași memorie: vezi `memShim` mai jos. */
+  var memShim = null;
+  (function () {
+    ['localStorage', 'sessionStorage'].forEach(function (name) {
+      var bad = false;
+      try { var s0 = window[name]; if (!s0 || typeof s0.getItem !== 'function') bad = true; else s0.getItem('fff.__probe'); } catch (e) { bad = true; }
+      if (!bad) return;
+      var has = Object.prototype.hasOwnProperty, data = {};
+      var api = {
+        getItem: function (k) { k = String(k); return has.call(data, k) ? data[k] : null; },
+        setItem: function (k, v) { data[String(k)] = String(v); },
+        removeItem: function (k) { delete data[String(k)]; },
+        clear: function () { data = {}; },
+        key: function (i) { var ks = Object.keys(data); i = +i; return i >= 0 && i < ks.length ? ks[i] : null; }
+      };
+      try { Object.defineProperty(api, 'length', {configurable: true, get: function () { return Object.keys(data).length; }}); } catch (e1) { /* ignorat */ }
+      var store = api;
+      if (typeof Proxy === 'function') {
+        try {
+          store = new Proxy(api, {
+            get: function (t, p) {
+              if (p in t) return t[p];
+              return typeof p === 'string' && has.call(data, p) ? data[p] : undefined;
+            },
+            set: function (t, p, v) { if (typeof p === 'string') data[p] = String(v); return true; },
+            has: function (t, p) { return p in t || (typeof p === 'string' && has.call(data, p)); },
+            deleteProperty: function (t, p) { if (typeof p === 'string') delete data[p]; return true; },
+            ownKeys: function () { return Object.keys(data); },
+            getOwnPropertyDescriptor: function (t, p) { return typeof p === 'string' && has.call(data, p) ? {value: data[p], writable: true, enumerable: true, configurable: true} : undefined; }
+          });
+        } catch (e2) { store = api; }
+      }
+      try { Object.defineProperty(window, name, {configurable: true, enumerable: true, get: function () { return store; }}); }
+      catch (e3) { try { window[name] = store; } catch (e4) { /* ignorat */ } }
+      (window.FFF = window.FFF || {}).storageVolatile = true;
+      if (name === 'localStorage') memShim = {api: api};
+      try { if (window.console && console.warn) console.warn('[fff] ' + name + ' indisponibil în acest browser: modificările se păstrează doar până la închiderea paginii'); } catch (e5) { /* ignorat */ }
+    });
+  })();
+  var KIT_VERSION = '1.8.1';
   var F = (window.FFF = window.FFF || {});
   if (F.core && F.core.version) return; // idempotent la dublă încărcare
   var SUP = ['ro', 'en', 'fr', 'it', 'es', 'pt', 'hu', 'de'];
@@ -1050,6 +1094,7 @@ html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margi
   var LS = null;
   try { LS = window.localStorage; } catch (e) { LS = null; }
   var P = window.Storage ? window.Storage.prototype : null;
+  if (memShim) P = memShim.api;   // stocare în memorie: observatorul și freeze() lucrează pe metodele ei, nu pe cele ale Storage.prototype (care nu se aplică pe ea)
   var origGet = P && P.getItem, origSet = P && P.setItem, origRem = P && P.removeItem, origClr = P && P.clear;
 
   F.lang = function () {
@@ -1242,7 +1287,7 @@ html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margi
     frozen: function () { return frozen; },
     forget: function (k) { if (observing) untrack(k); },
     remember: function (k) { if (observing) track(k); },
-    available: function () { return lsOk(); },
+    available: function () { return lsOk() && !memShim; },   // „disponibilă” = durabilă: pe stocarea în memorie întoarce false (vezi FFF.storageVolatile)
     observing: function () { return observing; }
   };
   F.store = store;
@@ -1577,7 +1622,7 @@ html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margi
       } catch (e) { /* ignorat */ }
     }
   }
-  /* Corecția are două căi, ambele fără element <style> nou (un `style-src` strict, doar pe hash-uri, îl blochează și îl raportează ca încălcare CSP):
+  /* Corecția are două căi, ambele fără un element nou de tip style (un `style-src` strict, doar pe hash-uri, îl blochează și îl raportează ca încălcare CSP):
    *  1) foaie CONSTRUIBILĂ (adoptedStyleSheets: Chrome 73+, Firefox 101+, Safari 16.4+) cu copiile regulilor; vine după toate foile paginii, deci bate regulile aplicației;
    *  2) în browserele mai vechi, regulile existente se rescriu PE LOC prin CSSOM (rule.style.setProperty — permis de CSP): valoarea învelită cu --fff-zinv e identică cu
    *     originalul la zoom 1 (var(--fff-zinv,1)), deci nu trebuie restaurată, iar cascada rămâne neatinsă. */
@@ -2512,15 +2557,15 @@ html.fff-no-flexgap .fff-share>*+*,html.fff-no-flexgap .fff-share-list>*+*{margi
 <script type="application/json" id="fff-i18n">{"view":{"ro":{"bar":"Zoom și dimensiunea textului","in":"Mărește","out":"Micșorează","fit":"Zoom automat","zoom":"Zoom"},"en":{"bar":"Zoom and text size","in":"Zoom in","out":"Zoom out","fit":"Automatic zoom","zoom":"Zoom"},"fr":{"bar":"Zoom et taille du texte","in":"Agrandir","out":"Réduire","fit":"Zoom automatique","zoom":"Zoom"},"it":{"bar":"Zoom e dimensione del testo","in":"Ingrandisci","out":"Riduci","fit":"Zoom automatico","zoom":"Zoom"},"es":{"bar":"Zoom y tamaño del texto","in":"Ampliar","out":"Reducir","fit":"Zoom automático","zoom":"Zoom"},"pt":{"bar":"Zoom e tamanho do texto","in":"Ampliar","out":"Reduzir","fit":"Zoom automático","zoom":"Zoom"},"de":{"bar":"Zoom und Textgröße","in":"Vergrößern","out":"Verkleinern","fit":"Automatischer Zoom","zoom":"Zoom"},"hu":{"bar":"Nagyítás és szövegméret","in":"Nagyítás","out":"Kicsinyítés","fit":"Automatikus nagyítás","zoom":"Nagyítás"}},"a11y":{"ro":{"skip":"Sari la conținut","btn":"Accesibilitate","up":"Înapoi sus","t":"Opțiuni de accesibilitate","sz":"Mărimea textului","sm":"Mai mic","lg":"Mai mare","pc":"{n}%","hc":"Contrast ridicat","rm":"Fără animații","rf":"Text lizibil (spațiere mărită)","ul":"Linkuri subliniate, focus accentuat","tts":"🔊 Citește textul","tts2":"■ Oprește citirea","tth":"Citește textul selectat sau pe cel vizibil pe ecran.","tt0":"Citirea cu voce nu e disponibilă în acest browser.","ttn":"Nu am găsit text de citit pe ecran.","rs":"Resetează tot","cl":"Închide"},"en":{"skip":"Skip to content","btn":"Accessibility","up":"Back to top","t":"Accessibility options","sz":"Text size","sm":"Smaller","lg":"Larger","pc":"{n}%","hc":"High contrast","rm":"No animations","rf":"Readable text (wider spacing)","ul":"Underlined links, strong focus","tts":"🔊 Read the text","tts2":"■ Stop reading","tth":"Reads the selected text, or the text visible on screen.","tt0":"Speech is not available in this browser.","ttn":"No text to read on screen.","rs":"Reset all","cl":"Close"},"fr":{"skip":"Aller au contenu","btn":"Accessibilité","up":"Retour en haut","t":"Options d’accessibilité","sz":"Taille du texte","sm":"Plus petit","lg":"Plus grand","pc":"{n}%","hc":"Contraste élevé","rm":"Sans animations","rf":"Texte lisible (espacement élargi)","ul":"Liens soulignés, focus renforcé","tts":"🔊 Lire le texte","tts2":"■ Arrêter la lecture","tth":"Lit le texte sélectionné ou celui visible à l’écran.","tt0":"La lecture vocale n’est pas disponible dans ce navigateur.","ttn":"Aucun texte à lire à l’écran.","rs":"Tout réinitialiser","cl":"Fermer"},"it":{"skip":"Vai al contenuto","btn":"Accessibilità","up":"Torna su","t":"Opzioni di accessibilità","sz":"Dimensione del testo","sm":"Più piccolo","lg":"Più grande","pc":"{n}%","hc":"Contrasto elevato","rm":"Senza animazioni","rf":"Testo leggibile (spaziatura ampia)","ul":"Link sottolineati, focus marcato","tts":"🔊 Leggi il testo","tts2":"■ Ferma la lettura","tth":"Legge il testo selezionato o quello visibile sullo schermo.","tt0":"La lettura vocale non è disponibile in questo browser.","ttn":"Nessun testo da leggere sullo schermo.","rs":"Ripristina tutto","cl":"Chiudi"},"es":{"skip":"Saltar al contenido","btn":"Accesibilidad","up":"Volver arriba","t":"Opciones de accesibilidad","sz":"Tamaño del texto","sm":"Más pequeño","lg":"Más grande","pc":"{n}%","hc":"Contraste alto","rm":"Sin animaciones","rf":"Texto legible (espaciado amplio)","ul":"Enlaces subrayados, foco marcado","tts":"🔊 Leer el texto","tts2":"■ Detener la lectura","tth":"Lee el texto seleccionado o el visible en pantalla.","tt0":"La lectura en voz alta no está disponible en este navegador.","ttn":"No hay texto que leer en pantalla.","rs":"Restablecer todo","cl":"Cerrar"},"pt":{"skip":"Saltar para o conteúdo","btn":"Acessibilidade","up":"Voltar ao topo","t":"Opções de acessibilidade","sz":"Tamanho do texto","sm":"Mais pequeno","lg":"Maior","pc":"{n}%","hc":"Contraste elevado","rm":"Sem animações","rf":"Texto legível (espaçamento maior)","ul":"Ligações sublinhadas, foco reforçado","tts":"🔊 Ler o texto","tts2":"■ Parar a leitura","tth":"Lê o texto selecionado ou o visível no ecrã.","tt0":"A leitura em voz alta não está disponível neste navegador.","ttn":"Não há texto para ler no ecrã.","rs":"Repor tudo","cl":"Fechar"},"de":{"skip":"Zum Inhalt springen","btn":"Barrierefreiheit","up":"Nach oben","t":"Barrierefreiheits-Optionen","sz":"Textgröße","sm":"Kleiner","lg":"Größer","pc":"{n} %","hc":"Hoher Kontrast","rm":"Keine Animationen","rf":"Gut lesbarer Text (weiter Abstand)","ul":"Unterstrichene Links, starker Fokus","tts":"🔊 Text vorlesen","tts2":"■ Vorlesen beenden","tth":"Liest den markierten oder den sichtbaren Text vor.","tt0":"Sprachausgabe ist in diesem Browser nicht verfügbar.","ttn":"Kein Text zum Vorlesen auf dem Bildschirm.","rs":"Alles zurücksetzen","cl":"Schließen"},"hu":{"skip":"Ugrás a tartalomra","btn":"Hozzáférhetőség","up":"Vissza a tetejére","t":"Hozzáférhetőségi beállítások","sz":"Szövegméret","sm":"Kisebb","lg":"Nagyobb","pc":"{n}%","hc":"Magas kontraszt","rm":"Animációk nélkül","rf":"Olvasható szöveg (tágabb térköz)","ul":"Aláhúzott linkek, erős fókusz","tts":"🔊 Szöveg felolvasása","tts2":"■ Felolvasás leállítása","tth":"Felolvassa a kijelölt vagy a képernyőn látható szöveget.","tt0":"A hangfelolvasás nem érhető el ebben a böngészőben.","ttn":"Nincs felolvasható szöveg a képernyőn.","rs":"Minden visszaállítása","cl":"Bezárás"}},"share":{"ro":{"bar":"Distribuie pe rețele","share":"Distribuie pe {n}","native":"Distribuie…","copy":"Copiază linkul","copied":"Link copiat","copyfail":"Nu am putut copia linkul","close":"Ascunde butoanele de distribuire","open":"Arată butoanele de distribuire","n_mail":"E-mail","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"en":{"bar":"Share on social networks","share":"Share on {n}","native":"Share…","copy":"Copy link","copied":"Link copied","copyfail":"Could not copy the link","close":"Hide share buttons","open":"Show share buttons","n_mail":"Email","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"fr":{"bar":"Partager sur les réseaux","share":"Partager sur {n}","native":"Partager…","copy":"Copier le lien","copied":"Lien copié","copyfail":"Impossible de copier le lien","close":"Masquer les boutons de partage","open":"Afficher les boutons de partage","n_mail":"E-mail","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"it":{"bar":"Condividi sui social","share":"Condividi su {n}","native":"Condividi…","copy":"Copia il link","copied":"Link copiato","copyfail":"Impossibile copiare il link","close":"Nascondi i pulsanti di condivisione","open":"Mostra i pulsanti di condivisione","n_mail":"E-mail","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"es":{"bar":"Compartir en redes","share":"Compartir en {n}","native":"Compartir…","copy":"Copiar el enlace","copied":"Enlace copiado","copyfail":"No se pudo copiar el enlace","close":"Ocultar los botones de compartir","open":"Mostrar los botones de compartir","n_mail":"Correo electrónico","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"pt":{"bar":"Partilhar nas redes","share":"Partilhar no {n}","native":"Partilhar…","copy":"Copiar a ligação","copied":"Ligação copiada","copyfail":"Não foi possível copiar a ligação","close":"Ocultar os botões de partilha","open":"Mostrar os botões de partilha","n_mail":"E-mail","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"de":{"bar":"In sozialen Netzwerken teilen","share":"Auf {n} teilen","native":"Teilen…","copy":"Link kopieren","copied":"Link kopiert","copyfail":"Link konnte nicht kopiert werden","close":"Teilen-Schaltflächen ausblenden","open":"Teilen-Schaltflächen anzeigen","n_mail":"E-Mail","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"},"hu":{"bar":"Megosztás a közösségi oldalakon","share":"Megosztás: {n}","native":"Megosztás…","copy":"Hivatkozás másolása","copied":"Hivatkozás másolva","copyfail":"A hivatkozás másolása nem sikerült","close":"Megosztó gombok elrejtése","open":"Megosztó gombok megjelenítése","n_mail":"E-mail","n_wa":"WhatsApp","n_tg":"Telegram","n_fb":"Facebook","n_x":"X","n_in":"LinkedIn"}}}</script>
 <!--fff:kit:end-->
 <!--fff:info:start-->
-<script type="application/json" id="fff-info">{"schema":1,"slug":"patruzeci","name":"PATRUZECI — WD-40","version":"3.8.2","updated":"2026-11-18","description":"Offline, illustrated and animated atlas of WD-40 uses. Unofficial. RO EN FR IT ES PT DE HU.","egress":[],"permissions":["serviceWorker","localStorage","WebGL"],"storageKeys":["patruzeci-fav","patruzeci-lang"],"sizeBytes":1603918,"sha256":"5ef2f1c2eaa95634c13f3d8deb00f95a932daf026996b7c4eb34e6fee8827750","csp":{"present":true,"directives":{"default-src":"'none'","script-src":"sha256×6","style-src":"'unsafe-inline'","img-src":"'self' data:","worker-src":"'self'","connect-src":"'none'","base-uri":"'none'","form-action":"'none'","manifest-src":"'self'"},"scriptInline":"hash","connect":"'none'"},"features":{"export":false,"import":false,"i18n":["ro","en","fr","it","es","pt","hu","de"],"pwa":{"manifest":true,"serviceWorker":true},"modules":["core","store","view","a11y","share"]},"kit":{"version":"1.8.0","modules":["core","store","view","a11y","share"]},"selfSerializing":false}</script>
+<script type="application/json" id="fff-info">{"schema":1,"slug":"patruzeci","name":"PATRUZECI — WD-40","version":"3.8.3","updated":"2026-11-20","description":"Offline, illustrated and animated atlas of WD-40 uses. Unofficial. RO EN FR IT ES PT DE HU.","egress":[],"permissions":["serviceWorker","localStorage","WebGL"],"storageKeys":["patruzeci-fav","patruzeci-lang"],"sizeBytes":1607424,"sha256":"2625088a61f55da050dc1cc0ed702d61dae108f7112a00ad00c71a5bfad7cd62","csp":{"present":true,"directives":{"default-src":"'none'","script-src":"sha256×6","style-src":"'unsafe-inline'","img-src":"'self' data:","worker-src":"'self'","connect-src":"'none'","base-uri":"'none'","form-action":"'none'","manifest-src":"'self'"},"scriptInline":"hash","connect":"'none'"},"features":{"export":false,"import":false,"i18n":["ro","en","fr","it","es","pt","hu","de"],"pwa":{"manifest":true,"serviceWorker":true},"modules":["core","store","view","a11y","share"]},"kit":{"version":"1.8.1","modules":["core","store","view","a11y","share"]},"selfSerializing":false}</script>
 <!--fff:info:end-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-HCzt/jCBXELb/HdvTudfZ0FnTwUYxRlfhJyx03/+A8U=' 'sha256-QrjB1MbPYLmnffTbp57xa6SwKTdVSUGUyaLDtOnyJ+k=' 'sha256-jbKWqIpQp2eTNtovl54tI1IB1HZOZSr5LNlCG4UBmP0=' 'sha256-jhQT8oPE/mouXKXeGLRSHF48Vi8xI3pV/pDeAFvP5oM=' 'sha256-YO40Pa9U54kBXfBS8s7ySLVhwIuT7JC9cMSApha5DIk=' 'sha256-Y6CiNgceto5hvX4ZP19iJoaudDc/+FF5PMUV6/6rv1Q='; style-src 'unsafe-inline'; img-src 'self' data:; worker-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ESbwsbE2f+VEd03UvtksBTKl4aB/FF1n8LLBzbpsV8o=' 'sha256-QrjB1MbPYLmnffTbp57xa6SwKTdVSUGUyaLDtOnyJ+k=' 'sha256-ImKq9shYTCfXKKoOTZO5gBLTTpoonFwpDKMI1moy1l8=' 'sha256-jhQT8oPE/mouXKXeGLRSHF48Vi8xI3pV/pDeAFvP5oM=' 'sha256-YO40Pa9U54kBXfBS8s7ySLVhwIuT7JC9cMSApha5DIk=' 'sha256-Y6CiNgceto5hvX4ZP19iJoaudDc/+FF5PMUV6/6rv1Q='; style-src 'unsafe-inline'; img-src 'self' data:; worker-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b131b">
 <title>PATRUZECI — WD-40</title>
 <meta name="description" content="Offline, illustrated and animated atlas of WD-40 uses. Unofficial. RO EN FR IT ES PT DE HU.">
-<meta name="application-version" content="3.8.2">
-<meta name="last-updated" content="2026-11-18">
+<meta name="application-version" content="3.8.3">
+<meta name="last-updated" content="2026-11-20">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -2828,7 +2873,7 @@ select.btn option{background:#16232e;color:#e6eef3}
 </section>
 </main>
 <footer><div class="foot" data-i="foot"></div>
-<div class="foot" id="fver">MIT · © Alexandru-Ionuț Chiuță (Alexio) · <span id="app-version">v3.8.2</span></div></footer>
+<div class="foot" id="fver">MIT · © Alexandru-Ionuț Chiuță (Alexio) · <span id="app-version">v3.8.3</span></div></footer>
 <div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 
 <script>

@@ -10,8 +10,8 @@ app.json belongs to the kit: after changing VERSION run
     python3 tools/build.py && node fff-kit/build.mjs release . --bump none --lax
 (this script only warns when app.json disagrees with VERSION)."""
 import pathlib, re, hashlib, base64, json
-VERSION = '3.8.2'
-UPDATED = '2026-11-18'
+VERSION = '3.8.3'
+UPDATED = '2026-11-20'
 root = pathlib.Path(__file__).resolve().parent.parent
 d = root / 'src'
 css = (d / 'style.css').read_text(encoding='utf-8')

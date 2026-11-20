@@ -2,6 +2,11 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH).
 
+## 3.8.3 — 2026-11-20
+
+- fff-kit 1.8.1: când `localStorage`/`sessionStorage` aruncă sau lipsesc (cookie-uri și date de site blocate, WebView fără stocare, `<iframe sandbox>`), kitul pune în loc o stocare în memorie, iar pagina pornește în loc să se oprească; datele nu se păstrează după închiderea paginii
+- fff-kit 1.8.1: ghidajul care mărește controalele mici la 44 px măsoară acum și lățimea corpului paginii și a părintelui, deci un rând de butoane nu mai poate ieși din ecran (grupul rămâne neatins când mărirea l-ar depăși)
+
 ## 3.8.2 — 2026-11-18
 
 - Safety ratings of the full list: 141 entries that contradicted the app’s own “Avoid” rules, or the rating of their sibling entries, were raised (never lowered). 35 are now “not recommended” (112 → 147: brake drums and a lift’s brakes, cookware and food-preparation tools, dryers, burners and stoves, candle holders, hospital and orthopaedic equipment, aquariums, a live electrical panel, a steering wheel) and 106 “with care” (245 → 351: other brake parts, cooking and heating appliances, baby and playground gear, wiring and generators, screens and CD cases, pet gear, and floors, soles and grips that turn slippery). Each has a note: the existing warnings are reused and three short new ones (live electrics, slippery film, things children touch) are translated in all 8 languages.

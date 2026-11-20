@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "patruzeci",
   "name": "PATRUZECI — WD-40",
-  "version": "3.8.2",
-  "updated": "2026-11-18",
+  "version": "3.8.3",
+  "updated": "2026-11-20",
   "description": "Offline, illustrated and animated atlas of WD-40 uses. Unofficial. RO EN FR IT ES PT DE HU.",
   "egress": [],
   "permissions": [
@@ -15,8 +15,8 @@
     "patruzeci-fav",
     "patruzeci-lang"
   ],
-  "sizeBytes": 1603918,
-  "sha256": "5ef2f1c2eaa95634c13f3d8deb00f95a932daf026996b7c4eb34e6fee8827750",
+  "sizeBytes": 1607424,
+  "sha256": "2625088a61f55da050dc1cc0ed702d61dae108f7112a00ad00c71a5bfad7cd62",
   "csp": {
     "present": true,
     "directives": {
@@ -59,7 +59,7 @@
     ]
   },
   "kit": {
-    "version": "1.8.0",
+    "version": "1.8.1",
     "modules": [
       "core",
       "store",
